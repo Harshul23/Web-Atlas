@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form elements</title>
+  </head>
+  <body>
+    <style>
+      .body {
+        font-family: system-ui;
+      }
+    </style>
+    <h1>Student Survey</h1>
+    <h3>It's mendetory for all to submit</h3>
+
+    <form action="">
+      <label for="text">
+        Name :
+        <input type="text" placeholder="Enter name" id="name" />
+      </label>
+      <br />
+      <br />
+
+      <label for="">
+        Email :
+        <input type="email" placeholder="Enter email" id="email" />
+      </label>
+      <br />
+      <br />
+
+      <label for="">
+        CVV :
+        <input type="number" max="999" placeholder="Enter CVV" id="cvv" />
+      </label>
+      <br />
+      <br />
+
+      <label for="">
+        Password :
+        <input type="password" placeholder="Enter password" id="password" />
+      </label>
+      <br />
+      <br />
+
+      <label for="">
+        Date :
+        <input type="date" placeholder="Enter date" />
+      </label>
+      <br />
+      <br />
+
+      <label for="options"> Choose according to your prefrance :
+        <select id="select_id">
+          <option value="Apple">I love Apple</option>
+          <option value="Apple">I like Oranges</option>
+          <option value="Apple">I prefer Kiwi</option>
+        </select>
+      </label>
+
+      <br />
+      <br />
+
+      <button type="submit" class="formbtn">Submit</button>
+      <button type="reset" class="formbtn">Reset</button>
+    </form>
+  </body>
+</html>
