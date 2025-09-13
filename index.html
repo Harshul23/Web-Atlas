@@ -3,87 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development</title>
+    <title>Web-Atlas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .hello {
-           font-family: system-ui;
-           font-weight: 800;
-           font-size: 4.6em;            
-           padding: 1em 1em 0.6em 1em;
-           margin-top: 0.8em;
-           margin-bottom: 0;
-           text-align: center;
-        }
-        .hero {
-            height: 70vh;
-            align-items: center;
-            padding: 0;
-            margin-bottom: 6em;
-            p {
-            margin: 0;
-            padding: 0;
-           }
-        }
-        .vertical {
-            transform: rotate(90deg);
-        }
-        .hcircle {
-            width: 4em;
-            height: 4em;
-            border-radius: 50%;
-            position: absolute;
-            left: 5.5em;
-            top: 12em;
-            background: repeating-conic-gradient(
-          black 0deg 10deg,      /* dash arc */
-            transparent 10deg 25deg /* gap arc */
-            );
-                mask: radial-gradient(farthest-side, transparent calc(100% - 5px), black calc(100% - 5px));
-                -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 5px));
-        }
-        .card {
-            background-color: rgb(170, 239, 247);
-            height: 18.5em;
-            width:  36em;
-            padding:  1em 1em 1em 4em;
-            border-radius: 1em;
-            color: rgb(44, 110, 103);
-            display: flex;
-            flex-direction: column;
-            font-weight: 900;
-            border: 0.04em solid black;
-            p {
-                font-size: 3.8em;
-                margin: 0.2em;
-            }
-            .preview {
-                height: 16.1em;
-                width: 14em;
-                top: 38em;
-                right: 10em;
-                position: absolute;
-                border-radius: 1em;
-                background-color: rgb(21, 21, 21);
-            }
-        } 
-
-    </style>
     <!-- Navbar -->
     <nav style="display: flex; justify-content: flex-start; align-items: center; gap: 18em; font-family: system-ui; padding: 1em; background-color: #7df0ff; border-radius: 1em; border: 0.08em solid black; margin: 1em;">
         <div class="logo" style="border-radius: 100%; background-color: rgb(255, 255, 255); height: 2.5em; width: 2.5em; text-align: center; display: flex; justify-content: center; align-items: center; border: 0.08em solid black;"><span style="font-weight: 900; color: #50C0FF; font-size: 1.2em;">W</span></div>
         <ul style="display: flex; flex-direction: row; gap: 10em; list-style: none; font-weight: 600;">
-            <li class="navbtn"><a href="#home" style="text-decoration: none; color: black;">Home</a></li>
-            <li class="navbtn"><a href="#classes"  style="text-decoration: none; color: black;">Classes</a></li>
+            <li class="navbtn"><a href="index.html" style="text-decoration: none; color: black;">Home</a></li>
+            <li class="navbtn"><a href="notes.html"  style="text-decoration: none; color: black;">Notes</a></li>
             <li class="navbtn"><a href="#projects"  style="text-decoration: none; color: black;">Projects</a></li>
         </ul>
     </nav>
@@ -97,10 +29,10 @@
         <p style="position: absolute; font-size: larger; letter-spacing: 0.2em; top: 16em;">--><------------------------------------------------------------------------------------------------------------------------</p>
         <span class="vertical" style="position: absolute; z-index: 10; font-size: larger; letter-spacing: 0.2em;  top: 39em; right: 27em; width: 100vw;">-----------------------------------------------------</span>
         <span class="vertical" style="position: absolute; z-index: 10; font-size: larger; letter-spacing: 0.2em;  top: 39em; left: 27em; width: 100vw;">------------------------------------------------------</span>
-         <p style="position: absolute; font-size: larger; letter-spacing: 0.2em; top: 24em; left: 4em; width: 100vw;
-        ">-------------------------------------------------------------------------------------------------------------</p>
-         <p style="position: absolute; font-size: larger; letter-spacing: 0.2em; top: 32em; left: 4em; width: 100vw;
-        ">-------------------------------------------------------------------------------------------------------------</p>
+         <p style="position: absolute; font-size: larger; letter-spacing: 0.2em; top: 24em; left: 6em; width: 82vw;
+        ">------------------------------------------------------------------------------------------------------</p>
+         <p style="position: absolute; font-size: larger; letter-spacing: 0.2em; top: 32em; left: 6em; width: 82vw;
+        ">------------------------------------------------------------------------------------------------------</p>
 
         <span class="vertical" style="position: absolute; z-index: 10; font-size: larger; letter-spacing: 0.2em; width: 100vw; top: 56em; right: 12em;">--------------------</span>
         <span class="vertical" style="position: absolute; z-index: 10; font-size: larger; letter-spacing: 0.2em;  top: 56em; left: 12em; width: 100vw;">---------------------</span>
@@ -211,7 +143,7 @@
             <div style="color: white; font-family: system-ui;">
                 <h3 style="margin-bottom: 1em;"><i class="fas fa-share-alt" style="margin: 0.5em;"></i> Follow Us</h3>
                 <p style="color: #888;"><i class="fab fa-linkedin" style="margin: 0.5em;"></i><a style="text-decoration: none; color: #888;" href="#linkedin">LinkedIn</a></p>
-                <p style="color: #888;"><i class="fab fa-github" style="margin: 0.5em;"></i><a style="text-decoration: none; color: #888;" href="#github">GitHub</a></p>
+                <p style="color: #888;"><i class="fab fa-github" style="margin: 0.5em;"></i><a style="text-decoration: none; color: #888;" href="https://github.com/Harshul23/Web-Atlas" target="_blank">GitHub</a></p>
             </div>
         </div>
     </footer>

@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.hello {
+  font-family: system-ui;
+  font-weight: 800;
+  font-size: 4.6em;
+  padding: 1em 1em 0.6em 1em;
+  margin-top: 0.8em;
+  margin-bottom: 0;
+  text-align: center;
+}
+.hero {
+  height: 70vh;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 6em;
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+.vertical {
+  transform: rotate(90deg);
+}
+.hcircle {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  position: absolute;
+  left: 5.5em;
+  top: 12em;
+  background: repeating-conic-gradient(
+    black 0deg 10deg,
+    /* dash arc */ transparent 10deg 25deg /* gap arc */
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 5px),
+    black calc(100% - 5px)
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 2px),
+    black calc(100% - 5px)
+  );
+}
+.card {
+  background-color: rgb(170, 239, 247);
+  height: 18.5em;
+  width: 36em;
+  padding: 1em 1em 1em 4em;
+  border-radius: 1em;
+  color: rgb(44, 110, 103);
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  border: 0.04em solid black;
+  p {
+    font-size: 3.8em;
+    margin: 0.2em;
+  }
+  .preview {
+    height: 16.1em;
+    width: 14em;
+    top: 38em;
+    right: 10em;
+    position: absolute;
+    border-radius: 1em;
+    background-color: rgb(21, 21, 21);
+  }
+}
+.heading {
+  font-family: system-ui;
+  font-weight: 800;
+  font-size: 4em;
+  padding: 0.5em 1em 0em 1em;
+  display: inline-block;
+  margin: 0;
+}
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18em;
+  font-family: system-ui;
+  padding: 1em;
+  background-color: #7df0ff;
+  border-radius: 1em;
+  border: 0.08em solid black;
+  margin: 1em;
+}
+.logo {
+  border-radius: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 2.5em;
+  width: 2.5em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.08em solid black;
+}
+.description {
+  font-family: Poppins;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #6b6b6b;
+  margin: 0;
+  padding: 0.8em 1em 1em 3.4em;
+}
+.notes {
+  height: 80vh;
+  width: 90vw;
+  padding: 2em 2em 2em 4em;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1.6em;
+  .notecard {
+    height: 100%;
+    width: 100%;
+    border-radius: 1em;
+    border: 0.08em solid black;
+    background-color: #01607b;
+    box-sizing: content-box;
+    p {
+      font-family: system-ui;
+      font-weight: 400;
+      padding: 0.2em 1em 1.4em 1em;
+      color: rgb(0, 242, 255);
+      margin: 0.4em;
+    }
+    .noteinfo {
+      height: 78%;
+      width: 100%;
+      border-radius: 1rem;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: #7df0ff;
+      font-family: system-ui;
+      font-weight: 600;
+      font-size: 2em;
+      box-sizing: border-box;
+      padding: 0.4em 0.8em 0.8em 0.6em;
+      p {
+        font-size: 0.4em;
+        height: 0.1em;
+        width: 100%;
+        font-weight: 500;
+        color: #505050;
+        padding: 0.6em 1em 0em 0em;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
