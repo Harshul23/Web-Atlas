@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Playground</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 4em;
+        height: 60vh;
+        width: 90vw;
+        align-self: center;
+    }
+    .box {
+        height: 10em;
+        font-family: system-ui;
+        font-size: 1em;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1em;
+        flex-basis: 200px;
+    }
+</style>
+<body>
+
+    <h1 style="padding: 1em; font-family: system-ui;">CSS Flex Properties</h1>
+
+    <div class="container">
+        <div class="box" style="background-color: aqua; color: black; order: 5;">I am box 1</div>
+        <div class="box" style="background-color: red; color: black; order: 1;">I am box 2</div>
+        <div class="box" style="background-color: blue; color: black; order: 6;">I am box 3</div>
+        <div class="box" style="background-color: yellow; color: black; order: 10;">I am box 4</div>
+        <div class="box" style="background-color: green; color: black;">I am box 5</div>
+        <div class="box" style="background-color: pink; color: black;">I am box 6</div>
+        <div class="box" style="background-color: orange; color: black;">I am box 7</div>
+        <div class="box" style="background-color: black; color: white;">I am box 8</div>
+    </div>
+</body>
+</html>

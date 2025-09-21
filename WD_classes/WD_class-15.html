@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries</title>
+    <style>
+      @media (max-width: 601px) {
+        h1 {
+          color: rgb(253, 119, 24);
+        }
+      }
+
+      h1 {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 8em;
+        width: 8em;
+        background-color: aquamarine;
+        border-radius: 0.5em;
+      }
+      .links {
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+        gap: 1.8em;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        color: rgb(99, 99, 99);
+      }
+      .links il:hover {
+        color: rgb(255, 255, 255);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 
+    < 600px  ==  mobile
+    600 - 1024px  ==  tablets
+    > 1024px  ==  desktop/laptop.
+
+    Syntax : 
+    @media (max-width: 600px) {
+        .box {
+            color: red;
+        }
+        h1, p {
+            color: blue;
+        }
+    }
+
+    @media (max-width: 601px) and (max-width: 1024px) {
+        .box {
+            color: yellow;
+        }
+        h1, p {
+            color: orange;
+        }
+    }
+
+    Not neccessery to write this.
+    @media (min-width: 1024px) {
+        .box {
+            color: yellow;
+        }
+        h1, p {
+            color: orange;
+        }
+    }
+
+
+    -->
+
+    <nav
+      style="
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4em;
+        box-sizing: border-box;
+        border-radius: 1em;
+        margin: 1em;
+        height: 12vh;
+        width: 94vw;
+        font-family: system-ui;
+      "
+    >
+      <div class="sec1">
+        <ul class="links">
+          <il>What's included</il>
+          <il>Stories</il>
+          <il>Our why</il>
+          <il>FAQs</il>
+        </ul>
+      </div>
+      <div class="sec2">
+        <ul style="list-style: none; font-size: 2em; font-weight: 700">
+          <li>superpower</li>
+        </ul>
+      </div>
+      <div class="sec3">
+        <ul
+          style="
+            font-weight: 500;
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            align-items: center;
+          "
+        >
+          <il>Login</il>
+          <il
+            style="
+              background-color: orangered;
+              padding: 0.8em;
+              border-radius: 1.2em;
+            "
+            >Start Testing</il
+          >
+        </ul>
+      </div>
+    </nav>
+
+    <h1>Adjust Screen size and see the change</h1>
+
+    <div class="box">I am a box with shadow</div>
+  </body>
+</html>
