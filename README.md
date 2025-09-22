@@ -81,6 +81,3 @@ This project is available under the **MIT License**. See the `LICENSE` file for 
 ## Contact
 **Harshul** — GitHub: [@Harshul23](https://github.com/Harshul23)
 
----
-
-*This README was generated after inspecting the repository file list. If you want, I can commit it to the `main` branch for you — tell me and I’ll provide the exact git commands to run.*
