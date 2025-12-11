@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End_Sem - Unit 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+      }
+      .back-btn {
+        margin: 1em 0;
+        align-self: flex-start;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 0.4em 0.9em;
+        border-radius: 999px;
+        font-size: 0.95em;
+        font-weight: 600;
+      }
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+      main {
+        display: flex;
+        padding: 2em 5em 2em 5em;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        background-color: bisque;
+        border-radius: 2em;
+        width: 95vw;
+        flex-direction: column;
+      }
+      main h1 {
+        text-align: center;
+        margin: 2em 0em 2em 0em;
+      }
+      main p {
+        font-size: 1.2em;
+      }
+      .subhead {
+        margin: 1em 0em 1em 0em;
+      }
+      .sub2 {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      .code {
+        margin: 1em 2em 0em 2em;
+        background-color: rgb(255, 244, 183);
+        padding: 1em;
+        border-radius: 1em;
+        border: 0.08em solid black;
+      }
+      .para {
+        margin: 0;
+      }
+      .tag {
+        background-color: rgb(170, 255, 255);
+        border-radius: 0.5em;
+        padding: 0.2em 0.6em 0.2em 0.6em;
+        font-family: monospace;
+      }
+      .topic {
+        border-radius: 1em;
+        background: #fff7e6;
+        margin: 0.75em 0;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+
+      .topic-header {
+        padding: 0.8em 1.2em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .topic-header h2 {
+        margin: 0;
+      }
+
+      .topic-toggle {
+        font-size: 1.1em;
+        font-weight: 700;
+      }
+
+      .topic-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.6em;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+
+      .topic.open .topic-body {
+        max-height: 2000px;
+        padding: 0 1.6em 1.4em 1.6em;
+      }
+
+      .box-model-diagram {
+        margin: 1.5em 2em 0 2em;
+        display: inline-block;
+        background-color: #fff4bf;
+        padding: 1em 2em 2em 2em;
+        border: 1px dashed #b38f00;
+        border-radius: 0.5em;
+        font-size: 0.9em;
+        cursor: default;
+        transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .box-model-margin {
+        background: #ffe6e6;
+        padding: 1em 2em 2em 2em;
+        border: 1px dashed #b38f00;
+        border-radius: 0.5em;
+        transition: box-shadow 0.2s ease, background-color 0.2s ease;
+      }
+      .box-model-border {
+        background: #e6f0ff;
+        padding: 1em 2em 2em 2em;
+        border: 1px dashed #b38f00;
+        border-radius: 0.5em;
+        transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .box-model-padding {
+        background: #e6ffe6;
+        padding: 1em 2em 2em 2em;
+        border: 1px dashed #b38f00;
+        border-radius: 0.5em;
+        transition: box-shadow 0.2s ease, background-color 0.2s ease;
+      }
+      .box-model-content {
+        background: #fffbe6;
+        padding: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px dashed #b38f00;
+        border-radius: 0.5em;
+        transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .box-model-label {
+        font-size: 0.85em;
+        font-weight: 600;
+        margin-bottom: 4px;
+        text-align: left;
+      }
+
+      .box-model-diagram:hover {
+        background-color: #fdf7b1;
+        box-shadow: 0 0 0 3px rgba(100, 94, 0, 0.735);
+      }
+
+      .box-model-margin:hover {
+        background-color: #ffd1d1;
+        box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.25);
+      }
+      .box-model-border:hover {
+        background-color: #d6e4ff;
+        border-color: #002b80;
+        box-shadow: 0 0 0 3px rgba(0, 64, 255, 0.25);
+      }
+      .box-model-padding:hover {
+        background-color: #d6ffd6;
+        box-shadow: 0 0 0 3px rgba(0, 160, 0, 0.25);
+      }
+      .box-model-content:hover {
+        background-color: #fff3bf;
+        border-color: #e0a800;
+        box-shadow: 0 0 0 3px rgba(224, 168, 0, 0.25);
+      }
+      .flex-playground {
+        margin: 1.5em 2em;
+        padding: 1em;
+        border-radius: 1em;
+        background: #fffaf0;
+        border: 1px solid #e0c48a;
+      }
+      .flex-playground-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-bottom: 0.75em;
+      }
+      .flex-secondary-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-bottom: 0.75em;
+      }
+      .flex-helper-text {
+        font-size: 0.85em;
+        color: #555;
+        margin-bottom: 0.75em;
+      }
+      .flex-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 0.4em 0.9em;
+        background: #222;
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+      }
+      .flex-btn.active {
+        background: #ff6600;
+      }
+      .flex-sample-container {
+        border-radius: 0.75em;
+        border: 2px dashed #ff6600;
+        padding: 0.75em;
+        display: flex;
+        gap: 0.5em;
+        min-height: 50vh;
+        background: #fff;
+        transition: all 0.25s ease;
+      }
+      .flex-item {
+        flex: 0 0 auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: #fff;
+      }
+      .flex-item:nth-child(3n + 1) {
+        background: #ff7b7b;
+      }
+      .flex-item:nth-child(3n + 2) {
+        background: #7bb3ff;
+      }
+      .flex-item:nth-child(3n + 3) {
+        background: #7bff9c;
+      }
+
+      .grid-playground {
+        margin: 1.5em 2em;
+        padding: 1em;
+        border-radius: 1em;
+        background: #f5f8ff;
+        border: 1px solid #b8c9ff;
+      }
+      .grid-playground-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-bottom: 1em;
+      }
+      .grid-gap-slider-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75em;
+        margin: 0.25em 0 1em 0;
+        font-size: 0.9em;
+      }
+      .grid-gap-slider-row label {
+        font-weight: 600;
+        color: #223;
+        min-width: 95px;
+      }
+      .grid-gap-value {
+        font-family: monospace;
+        background: #e4ebff;
+        padding: 0.15em 0.5em;
+        border-radius: 999px;
+      }
+      .grid-gap-slider {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #0066ff, #66b3ff);
+        outline: none;
+      }
+      .grid-gap-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #0066ff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .grid-gap-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #0066ff;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .grid-helper-text {
+        font-size: 0.85em;
+        color: #335;
+        margin-bottom: 0.75em;
+      }
+      .grid-size-sliders {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75em 1.25em;
+        margin-bottom: 0.75em;
+        font-size: 0.9em;
+      }
+      .grid-size-control {
+        flex: 1 1 160px;
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+      }
+      .grid-size-control label {
+        font-weight: 600;
+        color: #223;
+        min-width: 80px;
+      }
+      .grid-size-value {
+        font-family: monospace;
+        background: #ffe8d1;
+        padding: 0.15em 0.5em;
+        border-radius: 999px;
+      }
+      .grid-size-slider {
+        flex: 1;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #845ef7, #ffa94d);
+        outline: none;
+      }
+      .grid-size-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #845ef7;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .grid-size-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #845ef7;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+      .grid-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 0.4em 0.9em;
+        background: #222;
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+      }
+      .grid-btn.active {
+        background: #0066ff;
+      }
+      .grid-sample-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        border-radius: 0.75em;
+        border: 2px dashed #0066ff;
+        padding: 0.75em;
+        height: 50vh;
+        background: #fff;
+        transition: all 0.25s ease;
+      }
+      .grid-item {
+        height: 80px;
+        width: 80px;
+        border-radius: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: #fff;
+      }
+      .grid-item:nth-child(3n + 1) {
+        background: #845ef7;
+      }
+      .grid-item:nth-child(3n + 2) {
+        background: #22b8cf;
+      }
+      .grid-item:nth-child(3n + 3) {
+        background: #ffa94d;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h1>UNIT – 2: CSS BASICS & SYNTAX</h1>
+
+      <div class="topic open">
+        <div class="topic-header">
+          <h2 class="subhead">1. CSS Syntax</h2>
+          <span class="topic-toggle">−</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            CSS syntax controls how styles are written and applied. It consists of a
+            <strong>selector</strong>
+            (which element to style) and a
+            <strong>declaration block</strong>
+            (style rules written inside curly braces
+            <span class="tag">{ }</span>
+            ). Each declaration contains a
+            <strong>property</strong>
+            and a
+            <strong>value</strong>
+            . Correct syntax ensures browsers interpret styles properly.
+          </p>
+          <p class="para">CSS syntax is simple, readable, and works consistently across HTML documents.</p>
+          <h2 class="sub2">Syntax Diagram :</h2>
+          <div class="code">
+            <pre><code>selector {
+  property: value;
+  property: value;
+}</code></pre>
+          </div>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>p {
+  color: blue;
+  font-size: 18px;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">2. Application Methods (Inline, Internal, External)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            CSS can be applied in three main ways.
+            <strong>Inline CSS</strong>
+            is written directly in the HTML element and is useful for very small changes but not recommended for large projects.
+            <strong>Internal CSS</strong>
+            is placed inside a
+            <span class="tag">&lt;style&gt;</span>
+            tag within the
+            <span class="tag">&lt;head&gt;</span>
+            section—good for single‑page styling.
+            <strong>External CSS</strong>
+            is stored in a separate
+            <span class="tag">.css</span>
+            file linked using the
+            <span class="tag">&lt;link&gt;</span>
+            tag, which keeps code cleaner and more reusable.
+          </p>
+
+          <h2 class="sub2">Inline CSS :</h2>
+          <div class="code">
+            <pre><code>&lt;p style="color: red;"&gt;Hello&lt;/p&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">Internal CSS :</h2>
+          <div class="code">
+            <pre><code>&lt;style&gt;
+  h1 { color: green; }
+&lt;/style&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">External CSS :</h2>
+          <div class="code">
+            <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">3. CSS Selectors (Element, Class, ID, Pseudo)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Selectors determine which HTML elements will receive CSS. They help target specific parts of the page.
+            <strong>Element selectors</strong>
+            style all tags of that type.
+            <strong>Class selectors</strong>
+            style multiple elements by assigning a reusable name.
+            <strong>ID selectors</strong>
+            target one unique element.
+            <strong>Pseudo‑classes</strong>
+            target states such as hover, focus, active, first‑child, etc. Proper selectors make CSS organized and efficient.
+          </p>
+
+          <h2 class="sub2">Examples :</h2>
+          <div class="code">
+            <pre><code>/* Element */
+h1 { color: blue; }
+
+/* Class */
+.box { padding: 20px; }
+
+/* ID */
+#header { background: black; }
+
+/* Pseudo-class */
+button:hover { background: orange; }</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">4. CSS Box Model</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Every HTML element behaves like a box. The box model defines the structure:
+            <strong>content</strong>
+            ,
+            <strong>padding</strong>
+            ,
+            <strong>border</strong>
+            , and
+            <strong>margin</strong>
+            . Understanding this model is crucial for layout design, spacing, and alignment. It helps prevent overlapping and allows precise control of element sizes.
+          </p>
+
+          <h2 class="sub2">Diagram (Visual) :</h2>
+          <div class="box-model-diagram">
+            <div class="box-model-label">Margin</div>
+            <div class="box-model-margin">
+              <div class="box-model-label">Border</div>
+              <div class="box-model-border">
+                <div class="box-model-label">Padding</div>
+                <div class="box-model-padding">
+                  <div class="box-model-label">Content</div>
+                  <div class="box-model-content">This is the content area</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>.box {
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid black;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">5. Margin, Padding &amp; Border</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Margin provides outside spacing, padding gives inside spacing, and border surrounds an element. These three properties shape the layout and ensure readability. They help organize UI
+            components, separate sections, and maintain a proper visual structure on screens.
+          </p>
+
+          <h2 class="sub2">Code :</h2>
+          <div class="code">
+            <pre><code>.card {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid gray;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. Text &amp; Font Styling</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Text and font properties enhance readability and design. CSS allows setting font-size, font-family, font-weight, line-height, text-align, letter-spacing, and decoration. These styles help
+            create visually appealing headings, paragraphs, and user interfaces.
+          </p>
+
+          <h2 class="sub2">Code :</h2>
+          <div class="code">
+            <pre><code>p {
+  font-size: 18px;
+  font-family: Arial;
+  text-align: justify;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">7. CSS Backgrounds</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Background properties help customize the visual appearance of elements using colors, gradients, or images. They enhance design quality and are commonly used in banners, sections, hero
+            pages, and cards. With background-size and repeat options, designers can create professional and attractive UI sections easily.
+          </p>
+
+          <h2 class="sub2">Code :</h2>
+          <div class="code">
+            <pre><code>.box {
+  background-image: url("pic.jpg");
+  background-size: cover;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">8. Borders &amp; Border Radius</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Borders help visually define boundaries of boxes, while border-radius creates rounded corners for a smoother design. These properties enhance the aesthetics of buttons, cards, images, and
+            containers. They play an important role in modern minimalistic design styles.
+          </p>
+
+          <h2 class="sub2">Code :</h2>
+          <div class="code">
+            <pre><code>.box {
+  border: 2px solid green;
+  border-radius: 10px;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">9. Layout with Flexbox</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Flexbox is a one-dimensional layout system used to align items horizontally or vertically. It adapts to space automatically, making responsive design easy. Flexbox removes difficulties of
+            old layout methods and provides powerful alignment control.
+          </p>
+
+          <h2 class="sub2">Four Important Flexbox Properties :</h2>
+          <ol style="margin-left: 2.5em; font-size: 1.05em">
+            <li>
+              <strong>display: flex</strong>
+              – activates flexbox on the container.
+              <div class="code" style="margin-left: 0">
+                <pre><code>.container { display: flex; }</code></pre>
+              </div>
+            </li>
+            <li>
+              <strong>justify-content</strong>
+              – aligns items horizontally (main axis).
+              <div class="code" style="margin-left: 0">
+                <pre><code>.container { justify-content: center; }</code></pre>
+              </div>
+            </li>
+            <li>
+              <strong>align-items</strong>
+              – aligns items vertically (cross axis).
+              <div class="code" style="margin-left: 0">
+                <pre><code>.container { align-items: center; }</code></pre>
+              </div>
+            </li>
+            <li>
+              <strong>flex-direction</strong>
+              – sets the direction of items.
+              <div class="code" style="margin-left: 0">
+                <pre><code>.container { flex-direction: column; }</code></pre>
+              </div>
+            </li>
+          </ol>
+
+          <h2 class="sub2">Flexbox Playground :</h2>
+          <div class="flex-playground">
+            <p class="para" style="margin-bottom: 0.8em">Use the buttons to experiment with Flexbox direction, alignment, and number of items.</p>
+            <div class="flex-playground-controls">
+              <button class="flex-btn flex-justify active" data-justify="flex-start">Justify: Start</button>
+              <button class="flex-btn flex-justify" data-justify="center">Justify: Center</button>
+              <button class="flex-btn flex-justify" data-justify="flex-end">Justify: End</button>
+              <button class="flex-btn flex-justify" data-justify="space-between">Justify: Space-Between</button>
+              <button class="flex-btn flex-justify" data-justify="space-around">Justify: Space-Around</button>
+              <button class="flex-btn flex-dir active" data-direction="row">Direction: Row</button>
+              <button class="flex-btn flex-dir" data-direction="column">Direction: Column</button>
+            </div>
+            <div class="flex-secondary-controls">
+              <button class="flex-btn" id="flex-add">+ Add Box</button>
+              <button class="flex-btn" id="flex-remove">− Remove Box</button>
+              <button class="flex-btn" id="flex-wrap-toggle" data-wrap="nowrap">Wrap: Off</button>
+              <button class="flex-btn" id="flex-align-toggle" data-align="center">Align Items: Center</button>
+              <button class="flex-btn" id="flex-reset">Reset</button>
+            </div>
+            <p class="flex-helper-text">
+              Tip: Try combining
+              <strong>Direction: Column</strong>
+              with
+              <strong>Wrap</strong>
+              and different
+              <strong>Justify</strong>
+              options to see how the main axis changes.
+            </p>
+            <div class="flex-sample-container" id="flex-sample">
+              <div class="flex-item">1</div>
+              <div class="flex-item">2</div>
+              <div class="flex-item">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">10. Layout with Grid</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            CSS Grid is a two-dimensional layout system used to design full webpage structures with rows and columns. It allows precise control over areas and is used for dashboards, galleries, and
+            full layouts.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}</code></pre>
+          </div>
+
+          <h2 class="sub2">Grid Playground :</h2>
+          <div class="grid-playground">
+            <p class="para" style="margin-bottom: 0.8em">Change the number of columns and items to see how CSS Grid rearranges the layout.</p>
+            <div class="grid-playground-controls">
+              <button class="grid-btn grid-cols active" data-cols="2">2 Columns</button>
+              <button class="grid-btn grid-cols" data-cols="3">3 Columns</button>
+              <button class="grid-btn grid-cols" data-cols="4">4 Columns</button>
+              <button class="grid-btn" id="grid-add">+ Add Item</button>
+              <button class="grid-btn" id="grid-remove">- Remove Item</button>
+              <button class="grid-btn" id="grid-toggle-flow" data-flow="row">Flow: Row</button>
+              <button class="grid-btn" id="grid-align-toggle" data-align="stretch">Align Items: Stretch</button>
+              <button class="grid-btn" id="grid-justify-toggle" data-justify="stretch">Justify Items: Stretch</button>
+              <button class="grid-btn" id="grid-span-toggle" data-span="off">Toggle Span</button>
+              <button class="grid-btn" id="grid-reset">Reset</button>
+            </div>
+            <div class="grid-gap-slider-row">
+              <label for="grid-gap-slider">Gap (px):</label>
+              <input type="range" id="grid-gap-slider" class="grid-gap-slider" min="0" max="30" value="10" />
+              <span class="grid-gap-value" id="grid-gap-value">10px</span>
+            </div>
+            <div class="grid-size-sliders">
+              <div class="grid-size-control">
+                <label for="grid-width-slider">Item Width</label>
+                <input type="range" id="grid-width-slider" class="grid-size-slider" min="0" max="100" value="50" />
+                <span class="grid-size-value" id="grid-width-value">50%</span>
+              </div>
+              <div class="grid-size-control">
+                <label for="grid-height-slider">Item Height</label>
+                <input type="range" id="grid-height-slider" class="grid-size-slider" min="0" max="100" value="50" />
+                <span class="grid-size-value" id="grid-height-value">50%</span>
+              </div>
+            </div>
+            <p class="grid-helper-text">
+              Tip: Add more items and switch between
+              <strong>2 / 3 / 4 columns</strong>
+              and play with
+              <strong>gap</strong>
+              ,
+              <strong>item width</strong>
+              , and
+              <strong>item height</strong>
+              to see how Grid responds.
+            </p>
+            <div class="grid-sample-container" id="grid-sample">
+              <div class="grid-item">1</div>
+              <div class="grid-item">2</div>
+              <div class="grid-item">3</div>
+              <div class="grid-item">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">11. Hover and Focus Styles</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Pseudo-classes like
+            <span class="tag">:hover</span>
+            and
+            <span class="tag">:focus</span>
+            create interactivity.
+            <strong>:hover</strong>
+            triggers when the mouse is over an element, while
+            <strong>:focus</strong>
+            triggers when input fields or interactive elements are active. These are widely used for buttons, menus, and forms.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>button:hover {
+  background: red;
+}
+
+input:focus {
+  border-color: blue;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">12. Responsiveness in CSS</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Responsiveness ensures a webpage looks good on all screen sizes&mdash;desktop, tablet, and mobile. CSS automatically adjusts layout, font size, images, and spacing based on device width.
+            Techniques such as media queries, percentage widths, flexible units, flexbox, and grid help achieve responsiveness. A responsive site improves user experience and accessibility.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">13. Media Queries</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Media queries allow CSS to apply different styles depending on screen size. They are essential for responsive design because they let layouts adjust for mobile, tablet, and desktop
+            screens. Media queries can detect device width, orientation, resolution, and more.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>@media (max-width: 600px) {
+  .box {
+    width: 100%;
+    background: lightblue;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- More topics for Unit 2 can be added here in the same pattern -->
+    </main>
+    <script>
+      document.querySelectorAll(".topic-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const topic = header.parentElement;
+          const isOpen = topic.classList.contains("open");
+
+          document.querySelectorAll(".topic").forEach((t) => {
+            t.classList.remove("open");
+            const toggle = t.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "+";
+          });
+
+          if (!isOpen) {
+            topic.classList.add("open");
+            const toggle = topic.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "−";
+          }
+        });
+      });
+
+      // Flex playground logic
+      const flexSample = document.getElementById("flex-sample");
+      if (flexSample) {
+        const justifyButtons = document.querySelectorAll(".flex-justify");
+        const dirButtons = document.querySelectorAll(".flex-dir");
+        const addFlexBtn = document.getElementById("flex-add");
+        const removeFlexBtn = document.getElementById("flex-remove");
+        const wrapToggleBtn = document.getElementById("flex-wrap-toggle");
+        const alignToggleBtn = document.getElementById("flex-align-toggle");
+        const resetFlexBtn = document.getElementById("flex-reset");
+
+        const applyFlexSettings = () => {
+          const activeJustify = document.querySelector(".flex-justify.active");
+          const activeDir = document.querySelector(".flex-dir.active");
+          const justifyVal = activeJustify ? activeJustify.getAttribute("data-justify") : "flex-start";
+          const dirVal = activeDir ? activeDir.getAttribute("data-direction") : "row";
+
+          flexSample.style.flexDirection = dirVal;
+          flexSample.style.justifyContent = justifyVal;
+        };
+
+        justifyButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            justifyButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            applyFlexSettings();
+          });
+        });
+
+        dirButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            dirButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            applyFlexSettings();
+          });
+        });
+
+        if (addFlexBtn) {
+          addFlexBtn.addEventListener("click", () => {
+            const count = flexSample.children.length + 1;
+            const div = document.createElement("div");
+            div.className = "flex-item";
+            div.textContent = count;
+            flexSample.appendChild(div);
+          });
+        }
+
+        if (removeFlexBtn) {
+          removeFlexBtn.addEventListener("click", () => {
+            const last = flexSample.lastElementChild;
+            if (last) {
+              flexSample.removeChild(last);
+            }
+          });
+        }
+
+        if (wrapToggleBtn) {
+          wrapToggleBtn.addEventListener("click", () => {
+            const current = wrapToggleBtn.getAttribute("data-wrap") || "nowrap";
+            const next = current === "nowrap" ? "wrap" : "nowrap";
+            flexSample.style.flexWrap = next;
+            wrapToggleBtn.setAttribute("data-wrap", next);
+            wrapToggleBtn.textContent = next === "wrap" ? "Wrap: On" : "Wrap: Off";
+          });
+        }
+
+        if (alignToggleBtn) {
+          alignToggleBtn.addEventListener("click", () => {
+            const current = alignToggleBtn.getAttribute("data-align") || "center";
+            const next = current === "center" ? "flex-start" : current === "flex-start" ? "flex-end" : "center";
+            flexSample.style.alignItems = next;
+            alignToggleBtn.setAttribute("data-align", next);
+            alignToggleBtn.textContent = `Align Items: ${next.replace("flex-", "").replace(/^./, (c) => c.toUpperCase())}`;
+          });
+        }
+
+        if (resetFlexBtn) {
+          resetFlexBtn.addEventListener("click", () => {
+            flexSample.style.justifyContent = "flex-start";
+            flexSample.style.flexDirection = "row";
+            flexSample.style.flexWrap = "nowrap";
+            flexSample.style.alignItems = "stretch";
+
+            justifyButtons.forEach((b) => b.classList.remove("active"));
+            dirButtons.forEach((b) => b.classList.remove("active"));
+            const defaultJustify = document.querySelector('.flex-justify[data-justify="flex-start"]');
+            const defaultDir = document.querySelector('.flex-dir[data-direction="row"]');
+            if (defaultJustify) defaultJustify.classList.add("active");
+            if (defaultDir) defaultDir.classList.add("active");
+
+            if (wrapToggleBtn) {
+              wrapToggleBtn.setAttribute("data-wrap", "nowrap");
+              wrapToggleBtn.textContent = "Wrap: Off";
+            }
+
+            if (alignToggleBtn) {
+              alignToggleBtn.setAttribute("data-align", "center");
+              alignToggleBtn.textContent = "Align Items: Center";
+            }
+          });
+        }
+
+        // Ensure initial settings are applied
+        applyFlexSettings();
+      }
+
+      // Grid playground logic
+      const gridSample = document.getElementById("grid-sample");
+      if (gridSample) {
+        const colButtons = document.querySelectorAll(".grid-cols");
+        const addGridBtn = document.getElementById("grid-add");
+        const removeGridBtn = document.getElementById("grid-remove");
+        const flowToggleBtn = document.getElementById("grid-toggle-flow");
+        const gridAlignToggleBtn = document.getElementById("grid-align-toggle");
+        const gridJustifyToggleBtn = document.getElementById("grid-justify-toggle");
+        const gridGapSlider = document.getElementById("grid-gap-slider");
+        const gridGapValue = document.getElementById("grid-gap-value");
+        const gridWidthSlider = document.getElementById("grid-width-slider");
+        const gridHeightSlider = document.getElementById("grid-height-slider");
+        const gridWidthValue = document.getElementById("grid-width-value");
+        const gridHeightValue = document.getElementById("grid-height-value");
+        const gridSpanToggleBtn = document.getElementById("grid-span-toggle");
+        const gridResetBtn = document.getElementById("grid-reset");
+
+        colButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const cols = btn.getAttribute("data-cols");
+            gridSample.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            colButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+          });
+        });
+
+        if (addGridBtn) {
+          addGridBtn.addEventListener("click", () => {
+            const count = gridSample.children.length + 1;
+            const div = document.createElement("div");
+            div.className = "grid-item";
+            div.textContent = count;
+            gridSample.appendChild(div);
+            // Apply current slider-based sizes so new items match existing ones
+            if (typeof applyItemSizes === "function") {
+              applyItemSizes();
+            }
+          });
+        }
+
+        if (removeGridBtn) {
+          removeGridBtn.addEventListener("click", () => {
+            const last = gridSample.lastElementChild;
+            if (last) {
+              gridSample.removeChild(last);
+            }
+          });
+        }
+
+        if (flowToggleBtn) {
+          flowToggleBtn.addEventListener("click", () => {
+            const current = flowToggleBtn.getAttribute("data-flow") || "row";
+            const next = current === "row" ? "column" : "row";
+            gridSample.style.gridAutoFlow = next;
+            flowToggleBtn.setAttribute("data-flow", next);
+            flowToggleBtn.textContent = `Flow: ${next[0].toUpperCase()}${next.slice(1)}`;
+          });
+        }
+
+        if (gridAlignToggleBtn) {
+          gridAlignToggleBtn.addEventListener("click", () => {
+            const options = ["stretch", "start", "center", "end"];
+            const current = gridAlignToggleBtn.getAttribute("data-align") || "stretch";
+            const idx = options.indexOf(current);
+            const next = options[(idx + 1) % options.length];
+            gridSample.style.alignItems = next;
+            gridAlignToggleBtn.setAttribute("data-align", next);
+            gridAlignToggleBtn.textContent = `Align Items: ${next[0].toUpperCase()}${next.slice(1)}`;
+          });
+        }
+
+        if (gridJustifyToggleBtn) {
+          gridJustifyToggleBtn.addEventListener("click", () => {
+            const options = ["stretch", "start", "center", "end"];
+            const current = gridJustifyToggleBtn.getAttribute("data-justify") || "stretch";
+            const idx = options.indexOf(current);
+            const next = options[(idx + 1) % options.length];
+            gridSample.style.justifyItems = next;
+            gridJustifyToggleBtn.setAttribute("data-justify", next);
+            gridJustifyToggleBtn.textContent = `Justify Items: ${next[0].toUpperCase()}${next.slice(1)}`;
+          });
+        }
+
+        if (gridGapSlider && gridGapValue) {
+          gridGapSlider.addEventListener("input", () => {
+            const val = gridGapSlider.value;
+            gridSample.style.gap = `${val}px`;
+            gridGapValue.textContent = `${val}px`;
+          });
+        }
+
+        const applyItemSizes = () => {
+          const widthVal = gridWidthSlider ? gridWidthSlider.value : "50";
+          const heightVal = gridHeightSlider ? gridHeightSlider.value : "50";
+          if (gridWidthValue) gridWidthValue.textContent = `${widthVal}%`;
+          if (gridHeightValue) gridHeightValue.textContent = `${heightVal}%`;
+          gridSample.querySelectorAll(".grid-item").forEach((item) => {
+            item.style.width = `${widthVal}%`;
+            item.style.height = `${heightVal}%`;
+          });
+        };
+
+        if (gridWidthSlider || gridHeightSlider) {
+          if (gridWidthSlider) {
+            gridWidthSlider.addEventListener("input", applyItemSizes);
+          }
+          if (gridHeightSlider) {
+            gridHeightSlider.addEventListener("input", applyItemSizes);
+          }
+          // initial sizing
+          applyItemSizes();
+        }
+
+        if (gridSpanToggleBtn) {
+          gridSpanToggleBtn.addEventListener("click", () => {
+            const isOn = gridSpanToggleBtn.getAttribute("data-span") === "on";
+            const firstItem = gridSample.querySelector(".grid-item:nth-child(1)");
+            if (firstItem) {
+              if (isOn) {
+                firstItem.style.gridColumn = "auto";
+                firstItem.style.gridRow = "auto";
+                gridSpanToggleBtn.setAttribute("data-span", "off");
+                gridSpanToggleBtn.textContent = "Toggle Span";
+              } else {
+                firstItem.style.gridColumn = "span 2";
+                firstItem.style.gridRow = "span 2";
+                gridSpanToggleBtn.setAttribute("data-span", "on");
+                gridSpanToggleBtn.textContent = "Span First Item";
+              }
+            }
+          });
+        }
+
+        if (gridResetBtn) {
+          gridResetBtn.addEventListener("click", () => {
+            gridSample.style.gridTemplateColumns = "repeat(2, 1fr)";
+            gridSample.style.gridAutoFlow = "row";
+            gridSample.style.alignItems = "stretch";
+            gridSample.style.justifyItems = "stretch";
+            gridSample.style.gap = "10px";
+
+            colButtons.forEach((b) => b.classList.remove("active"));
+            const defaultCols = document.querySelector('.grid-cols[data-cols="2"]');
+            if (defaultCols) defaultCols.classList.add("active");
+
+            if (flowToggleBtn) {
+              flowToggleBtn.setAttribute("data-flow", "row");
+              flowToggleBtn.textContent = "Flow: Row";
+            }
+
+            if (gridAlignToggleBtn) {
+              gridAlignToggleBtn.setAttribute("data-align", "stretch");
+              gridAlignToggleBtn.textContent = "Align Items: Stretch";
+            }
+
+            if (gridJustifyToggleBtn) {
+              gridJustifyToggleBtn.setAttribute("data-justify", "stretch");
+              gridJustifyToggleBtn.textContent = "Justify Items: Stretch";
+            }
+
+            if (gridGapSlider && gridGapValue) {
+              gridGapSlider.value = "10";
+              gridGapValue.textContent = "10px";
+            }
+
+            if (gridWidthSlider) {
+              gridWidthSlider.value = "50";
+            }
+            if (gridHeightSlider) {
+              gridHeightSlider.value = "50";
+            }
+            applyItemSizes();
+
+            if (gridSpanToggleBtn) {
+              gridSpanToggleBtn.setAttribute("data-span", "off");
+              gridSpanToggleBtn.textContent = "Toggle Span";
+            }
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End_Sem - Unit 3 (JavaScript)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+      }
+      .back-btn {
+        margin: 1em 0;
+        align-self: flex-start;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 0.4em 0.9em;
+        border-radius: 999px;
+        font-size: 0.95em;
+        font-weight: 600;
+      }
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+      main {
+        display: flex;
+        padding: 2em 5em 2em 5em;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        background-color: bisque;
+        border-radius: 2em;
+        width: 95vw;
+        flex-direction: column;
+      }
+      main h1 {
+        text-align: center;
+        margin: 2em 0em 2em 0em;
+      }
+      main p {
+        font-size: 1.1em;
+      }
+      .subhead {
+        margin: 1em 0em 1em 0em;
+      }
+      .sub2 {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      .code {
+        margin: 1em 2em 0 2em;
+        background: #1e1e1e;
+        color: #d4d4d4;
+        border-radius: 0.9em;
+        border: 1px solid #333;
+        padding: 0.6em 0.9em;
+        font-family: "Fira Code", "Source Code Pro", monospace;
+        position: relative;
+        overflow-x: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      }
+
+      .code::before {
+        content: "Code";
+        position: absolute;
+        top: 0.25em;
+        left: 0.9em;
+        font-size: 0.7em;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #999;
+      }
+
+      .code::after {
+        content: "";
+        position: absolute;
+        top: 0.55em;
+        right: 0.9em;
+        width: 30px;
+        height: 8px;
+        background: radial-gradient(circle, #ff5f57 55%, transparent 56%) 0 0/10px 10px no-repeat, radial-gradient(circle, #febc2e 55%, transparent 56%) 10px 0/10px 10px no-repeat,
+          radial-gradient(circle, #28c840 55%, transparent 56%) 20px 0/10px 10px no-repeat;
+      }
+
+      .code pre {
+        margin: 1.2em 0 0 0;
+        font-size: 0.92em;
+      }
+
+      .code pre,
+      .code code {
+        background: transparent;
+        color: inherit;
+        font-family: inherit;
+        white-space: pre;
+      }
+
+      /* Simple JavaScript syntax highlighting */
+      .code .kw {
+        color: #569cd6;
+        font-weight: 600;
+      }
+      .code .str {
+        color: #ce9178;
+      }
+      .code .num {
+        color: #b5cea8;
+      }
+      .code .com {
+        color: #6a9955;
+        font-style: italic;
+      }
+      .code .op {
+        color: #d4d4d4;
+      }
+      .code .id {
+        color: #9cdcfe;
+      }
+      .code .prop {
+        color: #4ec9b0;
+      }
+      .code .punct {
+        color: #d4d4d4;
+      }
+      .para {
+        margin: 0;
+      }
+      .tag {
+        background-color: rgb(170, 255, 255);
+        border-radius: 0.5em;
+        padding: 0.2em 0.6em 0.2em 0.6em;
+        font-family: monospace;
+      }
+      .topic {
+        border-radius: 1em;
+        background: #fff7e6;
+        margin: 0.75em 0;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+      .topic-header {
+        padding: 0.8em 1.2em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .topic-header h2 {
+        margin: 0;
+      }
+      .topic-toggle {
+        font-size: 1.1em;
+        font-weight: 700;
+      }
+      .topic-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.6em;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+      .topic.open .topic-body {
+        max-height: none;
+        padding: 0 1.6em 1.4em 1.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h1>UNIT - 3: JavaScript</h1>
+
+      <!-- Topics will be appended here -->
+      <h2>Fundamentals</h2>
+      <div class="topic open">
+        <div class="topic-header">
+          <h2>1. Introduction to JavaScript</h2>
+          <span class="topic-toggle">-</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript is a high-level programming language used to add interactivity and dynamic behavior to websites. It runs directly inside the browser, allowing developers to respond to user
+            actions such as clicking, typing, scrolling, and submitting forms. JavaScript interacts with the browser through the DOM (Document Object Model), enabling changes to HTML and CSS in real
+            time.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            JavaScript supports variables, functions, loops, events, arrays, and objects. It is essential for modern web development and is also used in backend (Node.js), mobile apps, and desktop
+            applications.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">2. JavaScript Data Types</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">JavaScript has different types of data used to store values in variables.</p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Primitive Types :</h2>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>String &ndash; text</li>
+            <li>Number &ndash; integer or decimal</li>
+            <li>Boolean &ndash; true / false</li>
+            <li>Undefined &ndash; declared but not assigned</li>
+            <li>Null &ndash; empty or intentional absence</li>
+            <li>Symbol &ndash; unique values</li>
+            <li>BigInt &ndash; very large numbers</li>
+          </ul>
+
+          <h2 class="sub2">Reference Type :</h2>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>Object &ndash; collection of key&ndash;value pairs</li>
+          </ul>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> name <span class="op">=</span> <span class="str">"Alice"</span>;      <span class="com">// String</span>
+<span class="kw">let</span> age <span class="op">=</span> <span class="num">21</span>;            <span class="com">// Number</span>
+<span class="kw">let</span> isStudent <span class="op">=</span> <span class="kw">true</span>;    <span class="com">// Boolean</span>
+
+<span class="kw">let</span> data <span class="op">=</span> <span class="kw">null</span>;         <span class="com">// Null</span>
+<span class="kw">let</span> user;                <span class="com">// Undefined</span>
+
+<span class="kw">let</span> person <span class="op">=</span> {           <span class="com">// Object</span>
+  <span class="prop">name</span>: <span class="str">"Bob"</span>,
+  <span class="prop">age</span>: <span class="num">25</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">3. Variables: var, let, and const</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            In JavaScript,
+            <span class="tag">var</span>
+            ,
+            <span class="tag">let</span>
+            , and
+            <span class="tag">const</span>
+            are used to declare variables, but they differ in scope, hoisting, and whether you can re-declare or re-assign them.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Quick Comparison :</h2>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              <strong>Scope</strong>
+              :
+              <span class="tag">var</span>
+              is
+              <em>function-scoped</em>
+              , while
+              <span class="tag">let</span>
+              and
+              <span class="tag">const</span>
+              are
+              <em>block-scoped</em>
+              (limited to {} blocks).
+            </li>
+            <li>
+              <strong>Hoisting</strong>
+              : all are hoisted, but
+              <span class="tag">var</span>
+              is initialized as
+              <code>undefined</code>
+              , whereas
+              <span class="tag">let</span>
+              and
+              <span class="tag">const</span>
+              stay in the
+              <em>Temporal Dead Zone (TDZ)</em>
+              until their line of initialization.
+            </li>
+            <li>
+              <strong>Re-declaration</strong>
+              :
+              <span class="tag">var</span>
+              can be re-declared in the same scope;
+              <span class="tag">let</span>
+              and
+              <span class="tag">const</span>
+              cannot.
+            </li>
+            <li>
+              <strong>Re-assignment</strong>
+              :
+              <span class="tag">var</span>
+              and
+              <span class="tag">let</span>
+              can be re-assigned;
+              <span class="tag">const</span>
+              cannot be re-assigned after the first value.
+            </li>
+            <li>
+              <strong>Default initialization</strong>
+              :
+              <span class="tag">var</span>
+              defaults to
+              <code>undefined</code>
+              ;
+              <span class="tag">let</span>
+              and
+              <span class="tag">const</span>
+              have no default value and throw if used before initialization (TDZ).
+            </li>
+            <li>
+              <strong>Global object property</strong>
+              : in browsers, a global
+              <span class="tag">var</span>
+              becomes a property on
+              <code>window</code>
+              (for example,
+              <code>window.varName</code>
+              ), whereas
+              <span class="tag">let</span>
+              and
+              <span class="tag">const</span>
+              do not.
+            </li>
+          </ul>
+
+          <h2 class="sub2">Use Cases &amp; Best Practice :</h2>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              <span class="tag">var</span>
+              : for older JS code or when function-level scope is specifically required.
+              <strong>Best practice:</strong>
+              generally avoid in modern code.
+            </li>
+            <li>
+              <span class="tag">let</span>
+              : for variables whose values need to change over time (loops, counters, temporary values).
+              <strong>Best practice:</strong>
+              recommended for most variables.
+            </li>
+            <li>
+              <span class="tag">const</span>
+              : for values that should not be re-assigned (configuration values, references to arrays/objects).
+              <strong>Best practice:</strong>
+              use by default when you do not need to re-assign.
+            </li>
+          </ul>
+
+          <h2 class="sub2">Small Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">var</span> x <span class="op">=</span> <span class="num">10</span>;      <span class="com">// function-scoped</span>
+<span class="kw">let</span> y <span class="op">=</span> <span class="num">20</span>;      <span class="com">// block-scoped</span>
+<span class="kw">const</span> PI <span class="op">=</span> <span class="num">3.14</span>; <span class="com">// block-scoped, cannot be re-assigned</span>
+
+<span class="kw">if</span> (<span class="kw">true</span>) {
+  <span class="kw">let</span> y <span class="op">=</span> <span class="num">30</span>;   <span class="com">// different 'y' (inside block)</span>
+}
+
+<span class="com">// PI = 3.1415; // Error: Assignment to constant variable</span></code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">5. Hoisting in JavaScript</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Hoisting is JavaScript's behavior of
+            <strong>moving declarations to the top of their scope</strong>
+            before the code actually runs. Because of this, you can sometimes use variables and functions
+            <em>before</em>
+            they are written in the code.
+          </p>
+          <p class="para" style="margin-top: 0.6em">However, different declarations behave differently when hoisted:</p>
+          <ul style="margin-left: 2em; font-size: 1.02em; margin-top: 0.4em">
+            <li>
+              <span class="tag">var</span>
+              &rarr; hoisted and
+              <strong>initialized as undefined</strong>
+              .
+            </li>
+            <li>
+              <span class="tag">let</span>
+              /
+              <span class="tag">const</span>
+              &rarr; hoisted but
+              <strong>not initialized</strong>
+              (they stay in TDZ).
+            </li>
+            <li>
+              <strong>Function declarations</strong>
+              &rarr; fully hoisted, so you can call them before their definition.
+            </li>
+          </ul>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code>console.log(a); <span class="com">// undefined (var is hoisted and initialized)</span>
+<span class="kw">var</span> a <span class="op">=</span> <span class="num">10</span>;</code></pre>
+          </div>
+          <p class="para" style="margin-top: 0.6em">
+            The declaration
+            <span class="tag">var a</span>
+            is moved to the top of its scope and set to
+            <span class="tag">undefined</span>
+            , so the first
+            <span class="tag">console.log</span>
+            does not throw an error.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. Temporal Dead Zone (TDZ)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <strong>Temporal Dead Zone (TDZ)</strong>
+            is the time between when a
+            <span class="tag">let</span>
+            or
+            <span class="tag">const</span>
+            variable is
+            <em>hoisted</em>
+            and when it is
+            <strong>initialized with a value</strong>
+            . During this period, the variable exists in memory but
+            <strong>cannot be accessed</strong>
+            &mdash; any access will throw a
+            <span class="tag">ReferenceError</span>
+            .
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            This explains why
+            <span class="tag">let</span>
+            and
+            <span class="tag">const</span>
+            are safer than
+            <span class="tag">var</span>
+            : they prevent you from accidentally using a variable before it is properly initialized.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code>console.log(x); <span class="com">// ReferenceError: Cannot access 'x' before initialization</span>
+<span class="kw">let</span> x <span class="op">=</span> <span class="num">20</span>;</code></pre>
+          </div>
+          <p class="para" style="margin-top: 0.6em">
+            Here
+            <span class="tag">x</span>
+            is hoisted but stays in the TDZ until the
+            <span class="tag">let x = 20;</span>
+            line executes. Accessing it earlier causes a
+            <span class="tag">ReferenceError</span>
+            .
+          </p>
+          <h2 class="sub2" style="margin-top: 1em">Quick View: var vs let/const (Hoisting &amp; TDZ)</h2>
+          <div style="overflow-x: auto; margin-top: 0.6em">
+            <table style="border-collapse: collapse; width: 100%; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #ffe8c2; text-align: left">Feature</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">var</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">let / const</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Hoisted?</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Yes, declaration moved to top.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Yes, declaration also moved to top.</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Initial value before line</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em"><span class="tag">undefined</span></td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">No value (TDZ &rarr; cannot access)</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Access before initialization</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Allowed, gives
+                    <span class="tag">undefined</span>
+                    .
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Not allowed, throws
+                    <span class="tag">ReferenceError</span>
+                    .
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Safety</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Can hide bugs (silent
+                    <span class="tag">undefined</span>
+                    values).
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Safer &mdash; forces correct order of code.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">4. Introduction to Loops in JavaScript</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            In JavaScript, loops are used to repeat a block of code multiple times. They help avoid writing the same code repeatedly. For example, if you want to print numbers from 1 to 100, loops
+            allow you to do this with just a few lines of code.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            Loops are essential in array processing, pattern generation, calculations, animations, and DOM manipulations. JavaScript provides different kinds of loops, such as
+            <strong>for</strong>
+            ,
+            <strong>while</strong>
+            ,
+            <strong>do-while</strong>
+            , and enhanced loops like
+            <strong>for...of</strong>
+            and
+            <strong>for...in</strong>
+            . Each loop has specific use cases: some are better when the number of iterations is known, while others are suitable when the iterations depend on a condition.
+          </p>
+          <h2 class="sub2" style="margin-top: 1em">1. For Loop</h2>
+          <p class="para">
+            The
+            <strong>for loop</strong>
+            is the most commonly used loop in JavaScript. It is ideal when the number of iterations is already known. It has three parts:
+            <em>initialization</em>
+            ,
+            <em>condition</em>
+            , and
+            <em>increment / decrement</em>
+            . The loop runs as long as the condition is true.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Syntax Diagram :</h2>
+          <div class="code">
+            <pre><code>for (initialization; condition; increment/decrement) {
+  // code runs repeatedly
+}</code></pre>
+          </div>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>; i <span class="op">&lt;=</span> <span class="num">5</span>; i<span class="op">++</span>) {
+  console.log(i);
+}</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">2. While Loop</h2>
+          <p class="para">
+            The
+            <strong>while loop</strong>
+            runs as long as the condition remains true. It is preferred when the number of iterations is unknown. The body of the loop may execute zero or more times depending on the condition.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>;
+
+<span class="kw">while</span> (i <span class="op">&lt;=</span> <span class="num">5</span>) {
+  console.log(i);
+  i<span class="op">++</span>;
+}</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">3. Do-While Loop</h2>
+          <p class="para">
+            The
+            <strong>do-while loop</strong>
+            executes its block
+            <strong>at least once</strong>
+            before checking the condition. This makes it suitable when you must guarantee a minimum of one execution.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>;
+
+<span class="kw">do</span> {
+  console.log(i);
+  i<span class="op">++</span>;
+} <span class="kw">while</span> (i <span class="op">&lt;=</span> <span class="num">5</span>);</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">5. Difference Between For and While Loop</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <strong>for</strong>
+            loop and
+            <strong>while</strong>
+            loop can often solve the same problems, but they are suited to slightly different situations. The table below summarizes the key differences.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Comparison Table :</h2>
+          <div style="overflow-x: auto; margin-top: 0.5em">
+            <table style="border-collapse: collapse; width: 100%; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #ffe8c2; text-align: left">Feature</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">For Loop</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">While Loop</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Iteration Count</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Known before starting in most cases.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">May be unknown and depends on a condition.</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Syntax</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Compact &mdash; initialization, condition, and increment in one line.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Condition checked separately; initialization / increment usually written outside or inside the body.</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Use Case</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Arrays, counting loops, fixed number of iterations.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Waiting for a condition to become false; condition-driven loops.</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Risk</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Less chance of infinite loop because increment is usually visible in the header.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Higher chance of infinite loop if the condition or increment is not updated.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. for...of Loop</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <span class="tag">for...of</span>
+            loop is used to iterate through values of iterable objects like arrays, strings, maps, and sets. It provides a clean and easy way to access elements without worrying about indexes.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            It is mostly used when you only need values and not their positions. This loop is commonly used in array processing, form validation, string character checks, and modern JavaScript
+            frameworks. It reduces errors and improves readability compared to traditional for loops.
+          </p>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> nums <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>];
+
+<span class="kw">for</span> (<span class="kw">let</span> n <span class="kw">of</span> nums) {
+  console.log(n);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">7. for...in Loop</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <span class="tag">for...in</span>
+            loop is used to iterate over
+            <strong>keys or property names of an object</strong>
+            . It is ideal when working with key&ndash;value structures such as user profiles, configurations, student records, or JSON data. While it can also loop through array indexes, it is
+            recommended mainly for objects, not arrays.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            This loop helps inspect and process object data easily, especially when you want to access both the property name (key) and its corresponding value.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> student <span class="op">=</span> { <span class="prop">name</span>: <span class="str">"Mitali"</span>, <span class="prop">age</span>: <span class="num">21</span>, <span class="prop">city</span>: <span class="str">"Pune"</span> };
+
+<span class="kw">for</span> (<span class="kw">let</span> key <span class="kw">in</span> student) {
+  console.log(key, student[key]);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">8. Nested Loops</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Nested loops are
+            <strong>loops inside other loops</strong>
+            . They are used for matrix operations, patterns, tables, and multi-level iteration where one loop depends on another.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            In nested loops, the
+            <em>inner loop</em>
+            runs completely for every single iteration of the
+            <em>outer loop</em>
+            . This can lead to many total iterations, so they should be used carefully to avoid performance issues.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>; i <span class="op">&lt;=</span> <span class="num">3</span>; i<span class="op">++</span>) {
+  <span class="kw">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="num">1</span>; j <span class="op">&lt;=</span> <span class="num">3</span>; j<span class="op">++</span>) {
+    console.log(i, j);
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">9. Conditional Statements</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Conditional statements in JavaScript allow the program to make decisions based on
+            <strong>conditions</strong>
+            . They control the flow of execution depending on whether an expression evaluates to
+            <code>true</code>
+            or
+            <code>false</code>
+            . This is a fundamental concept because almost every real-world program requires checking conditions &mdash; for example, age verification, login validation, marks evaluation, access
+            permissions, pricing logic, and more.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            JavaScript provides multiple conditional structures like
+            <span class="tag">if</span>
+            ,
+            <span class="tag">if-else</span>
+            ,
+            <span class="tag">else-if ladder</span>
+            ,
+            <span class="tag">ternary operator</span>
+            , and
+            <span class="tag">switch</span>
+            . Each one is suitable for a different type of decision-making. Understanding conditional statements helps build logical thinking and real-world application programs.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1em">1. if Statement</h2>
+          <p class="para">
+            The
+            <span class="tag">if</span>
+            statement is the simplest decision-making structure in JavaScript. It checks a condition and executes a block of code only if that condition evaluates to
+            <code>true</code>
+            . If the condition is
+            <code>false</code>
+            , the block is skipped. It is useful when you want to run something only under one specific scenario &mdash; for example, checking if a user is old enough to vote, verifying if temperature
+            is too high, or validating if an input field is not empty.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> age <span class="op">=</span> <span class="num">18</span>;
+
+<span class="kw">if</span> (age <span class="op">&gt;=</span> <span class="num">18</span>) {
+  console.log(<span class="str">"You are an adult"</span>);
+}</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">2. if&ndash;else Statement</h2>
+          <p class="para">
+            An
+            <span class="tag">if-else</span>
+            statement provides two possible paths: one for the
+            <code>true</code>
+            condition and one for the
+            <code>false</code>
+            condition. This is helpful in scenarios where you must choose between two outcomes &mdash; such as pass/fail, login success/error, or discount eligibility. If the condition is true, the
+            first block runs; otherwise, the
+            <code>else</code>
+            block executes. This ensures that the program always performs one action between the two choices.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> marks <span class="op">=</span> <span class="num">45</span>;
+
+<span class="kw">if</span> (marks <span class="op">&gt;=</span> <span class="num">40</span>) {
+  console.log(<span class="str">"Pass"</span>);
+} <span class="kw">else</span> {
+  console.log(<span class="str">"Fail"</span>);
+}</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">3. else-if Ladder</h2>
+          <p class="para">
+            The
+            <span class="tag">else-if ladder</span>
+            is used when there are more than two possible outcomes. It checks conditions in sequence, and the first
+            <code>true</code>
+            condition executes its code block while skipping the rest. This structure is useful for multi-level decisions like grading systems, temperature categories, menu selections, or login roles
+            (admin, user, guest). It makes code more organized and avoids writing multiple separate
+            <span class="tag">if</span>
+            statements.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> temp <span class="op">=</span> <span class="num">30</span>;
+
+<span class="kw">if</span> (temp <span class="op">&gt;</span> <span class="num">40</span>) {
+  console.log(<span class="str">"Very Hot"</span>);
+} <span class="kw">else if</span> (temp <span class="op">&gt;</span> <span class="num">25</span>) {
+  console.log(<span class="str">"Warm"</span>);
+} <span class="kw">else</span> {
+  console.log(<span class="str">"Cold"</span>);
+}</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">4. Ternary Operator</h2>
+          <p class="para">
+            The
+            <span class="tag">ternary operator</span>
+            is a shorthand form of an
+            <span class="tag">if-else</span>
+            statement. It is mostly used for simple decision-making where a value needs to be returned or assigned based on a condition. Because it takes only one line, it is widely used in UI logic,
+            inline conditions, and quick value assignments. However, it should not be used for very complex decisions because that makes code harder to read.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Syntax :</h2>
+          <div class="code">
+            <pre><code>condition ? valueIfTrue : valueIfFalse</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> age <span class="op">=</span> <span class="num">20</span>;
+
+<span class="kw">let</span> status <span class="op">=</span> age <span class="op">&gt;=</span> <span class="num">18</span> ? <span class="str">"Adult"</span> : <span class="str">"Minor"</span>;
+console.log(status);</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">5. switch Statement</h2>
+          <p class="para">
+            The
+            <span class="tag">switch</span>
+            statement is used for making decisions when you want to compare a variable against multiple fixed values. It is cleaner than using many
+            <span class="tag">else-if</span>
+            blocks. Each
+            <span class="tag">case</span>
+            is matched with the variable, and when a match is found, that block executes. It is especially useful for menu selection, days of the week, grade mapping, or fixed-input conditions. Adding
+            <span class="tag">break</span>
+            statements prevents fall-through.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> day <span class="op">=</span> <span class="num">3</span>;
+
+<span class="kw">switch</span> (day) {
+  <span class="kw">case</span> <span class="num">1</span>:
+    console.log(<span class="str">"Mon"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">2</span>:
+    console.log(<span class="str">"Tue"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">case</span> <span class="num">3</span>:
+    console.log(<span class="str">"Wed"</span>);
+    <span class="kw">break</span>;
+  <span class="kw">default</span>:
+    console.log(<span class="str">"Invalid day"</span>);
+}</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">6. Decision-Making Flowchart</h2>
+          <p class="para">
+            A decision-making flowchart helps visualize how conditional statements work in a logical flow. It shows how a program checks a condition and chooses one of the available paths. This is
+            especially important for beginners because it helps them see how the code executes step-by-step. Flowcharts make troubleshooting easier because you can spot where your logic branches
+            incorrectly. Such diagrams are commonly used in software design, debugging, and planning algorithms.
+          </p>
+
+          <div style="margin-top: 1em; display: flex; flex-direction: column; align-items: center; gap: 0.6em">
+            <div style="border: 2px solid #2f855a; padding: 0.4em 1.6em; border-radius: 0.3em; background: #e6fffa; font-weight: 600">Condition?</div>
+            <div style="height: 1.4em; width: 2px; background: #2f855a"></div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 4em; width: 100%">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4em">
+                <span style="font-weight: 600; color: #22543d">Yes</span>
+                <div style="height: 1.4em; width: 2px; background: #2f855a"></div>
+                <div style="border: 2px solid #2b6cb0; padding: 0.3em 1.2em; border-radius: 999px; background: #ebf8ff; font-weight: 600">Execute A</div>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4em">
+                <span style="font-weight: 600; color: #c53030">No</span>
+                <div style="height: 1.4em; width: 2px; background: #2f855a"></div>
+                <div style="border: 2px solid #2b6cb0; padding: 0.3em 1.2em; border-radius: 999px; background: #ebf8ff; font-weight: 600">Execute B</div>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.6em">a. Nested If Statements</h2>
+          <p class="para">
+            Nested
+            <span class="tag">if</span>
+            statements are multiple
+            <span class="tag">if-else</span>
+            conditions placed inside one another. They are used when you need to check multiple conditions in a structured manner, where each inner condition depends on the previous condition being
+            <code>true</code>
+            . Nested
+            <span class="tag">if</span>
+            is common in grading systems, login validation, and user input checking. However, too many nested conditions can make the code hard to read, so indentation and formatting are important.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> marks <span class="op">=</span> <span class="num">82</span>;
+
+<span class="kw">if</span> (marks <span class="op">&gt;=</span> <span class="num">90</span>) {
+  console.log(<span class="str">"Grade: A+"</span>);
+} <span class="kw">else if</span> (marks <span class="op">&gt;=</span> <span class="num">75</span>) {
+  <span class="kw">if</span> (marks <span class="op">&gt;=</span> <span class="num">85</span>) {
+    console.log(<span class="str">"Grade: A (high)"</span>);
+  } <span class="kw">else</span> {
+    console.log(<span class="str">"Grade: A"</span>);
+  }
+} <span class="kw">else if</span> (marks <span class="op">&gt;=</span> <span class="num">60</span>) {
+  console.log(<span class="str">"Grade: B"</span>);
+} <span class="kw">else</span> {
+  console.log(<span class="str">"Grade: C or below"</span>);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">10. Operators &amp; Expressions</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript supports different types of
+            <strong>operators</strong>
+            such as
+            <strong>arithmetic</strong>
+            (
+            <code>+</code>
+            ,
+            <code>-</code>
+            ,
+            <code>*</code>
+            ,
+            <code>/</code>
+            ),
+            <strong>comparison</strong>
+            (
+            <code>==</code>
+            ,
+            <code>===</code>
+            ,
+            <code>&lt;</code>
+            ,
+            <code>&gt;</code>
+            ), and
+            <strong>logical</strong>
+            operators (
+            <code>&amp;&amp;</code>
+            ,
+            <code>||</code>
+            ,
+            <code>!</code>
+            ). These operators are used inside
+            <strong>expressions</strong>
+            to perform calculations, compare values, and combine conditions.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            An
+            <strong>expression</strong>
+            is any valid combination of variables, values, and operators that produces a result. For example,
+            <code>(5 &gt; 3) &amp;&amp; (10 &gt; 2)</code>
+            is a logical expression that evaluates to
+            <code>true</code>
+            because both comparison conditions are true.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> result <span class="op">=</span> (<span class="num">5</span> <span class="op">&gt;</span> <span class="num">3</span>) <span class="op">&amp;&amp;</span> (<span class="num">10</span> <span class="op">&gt;</span> <span class="num">2</span>);
+
+console.log(result); <span class="com">// true</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border: 1px solid black; width: 100%" />
+      <br />
+      <h2>Functions</h2>
+      <br />
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">11. Functions: What is a Function in JavaScript?</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            A function in JavaScript is a reusable block of code designed to perform a specific task. Instead of writing the same code again and again, functions let us write logic once and reuse it
+            many times. Functions improve structure, reduce repetition, and make code easier to maintain. A function can take inputs (called
+            <strong>parameters</strong>
+            ) and may return an output using the
+            <span class="tag">return</span>
+            keyword.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            In JavaScript, functions are
+            <strong>"first-class citizens"</strong>
+            , meaning they can be stored in variables, passed as arguments, and returned from other functions. Functions are the foundation for many programming concepts such as event handling,
+            callbacks, array methods (
+            <code>map</code>
+            ,
+            <code>filter</code>
+            ,
+            <code>reduce</code>
+            ), API requests, and component-based development.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1.2em">a. Function Syntax</h2>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.4em">Basic Structure</h3>
+          <div class="code">
+            <pre><code><span class="kw">function</span> functionName(parameter1, parameter2) {
+  <span class="com">// code to execute</span>
+  <span class="kw">return</span> value;
+}</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">b. Diagram of Function Flow</h2>
+          <div style="margin-top: 0.6em; display: flex; flex-direction: column; align-items: flex-start; gap: 0.4em; margin-left: 1em">
+            <span><strong>Input (Arguments)</strong></span>
+            <span style="margin-left: 0.5em">↓</span>
+            <span><strong>Function Definition</strong></span>
+            <span style="margin-left: 0.5em">↓</span>
+            <span><strong>Processing / Logic</strong></span>
+            <span style="margin-left: 0.5em">↓</span>
+            <span><strong>Output (Return Value)</strong></span>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">function</span> greet() {
+  console.log(<span class="str">"Hello, welcome!"</span>);
+}
+
+greet();</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">(i) Function With Return Value</h2>
+          <p class="para">
+            A function can
+            <strong>return</strong>
+            a value back to the place where it was called. After the
+            <span class="tag">return</span>
+            statement runs, the function stops executing and sends the result.
+          </p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">function</span> square(num) {
+  <span class="kw">return</span> num * num;
+}
+
+console.log(square(<span class="num">6</span>)); <span class="com">// 36</span></code></pre>
+          </div>
+          <p class="para" style="margin-top: 0.6em">
+            The function accepts a parameter
+            <span class="tag">num</span>
+            , processes it, and returns the computed result using
+            <span class="tag">return</span>
+            . After returning, the function stops execution.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1.4em">(ii). Function Parameters vs Arguments</h2>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              <strong>Parameters</strong>
+              &mdash; variables listed in the function definition.
+            </li>
+            <li>
+              <strong>Arguments</strong>
+              &mdash; actual values passed when calling the function.
+            </li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">function</span> add(a, b) {  <span class="com">// a, b → parameters</span>
+  <span class="kw">return</span> a + b;
+}
+
+add(<span class="num">5</span>, <span class="num">3</span>);   <span class="com">// 5, 3 → arguments</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.4em">(iv). Why Do We Use Functions?</h2>
+          <p class="para">
+            Functions are used to break code into smaller logical units. They allow us to avoid repetition through reusability, which increases efficiency and reduces bugs. Functions help organize
+            code so it is modular, clean, and easier to read. In larger projects, functions serve as building blocks for features like form validation, calculations, event handling (onClick, onHover),
+            data processing, and even UI components.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            Many JavaScript libraries and frameworks (such as React and Node.js) rely heavily on functions as their primary structure for logic. Thus, without functions, writing scalable and
+            maintainable code becomes almost impossible.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">12. Types of Functions in JavaScript</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2" style="margin-top: 0.4em">(i). Named Function</h2>
+          <div class="code">
+            <pre><code><span class="kw">function</span> hello() {
+  console.log(<span class="str">"Hello"</span>);
+}</code></pre>
+          </div>
+
+          <h2 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">(ii). Function Expression</h2>
+          <div class="code">
+            <pre><code><span class="kw">const</span> add <span class="op">=</span> <span class="kw">function</span>(a, b) {
+  <span class="kw">return</span> a + b;
+};</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.4em">(iii). Arrow Functions in JavaScript (ES6)</h2>
+          <p class="para">
+            Arrow functions were introduced in ES6 to provide a shorter and cleaner way to write functions. They reduce the amount of code and improve readability. Unlike regular functions, arrow
+            functions do
+            <strong>not have their own</strong>
+            <span class="tag">this</span>
+            ,
+            <span class="tag">arguments</span>
+            , or
+            <span class="tag">prototype</span>
+            , making them useful for callbacks, event handlers, and array methods (
+            <code>map</code>
+            ,
+            <code>filter</code>
+            ,
+            <code>reduce</code>
+            ) and functional programming.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            Arrow functions always use the
+            <span class="tag">=&gt;</span>
+            ("fat arrow") syntax and can be written in multiple forms depending on whether they return a single expression or require multiple statements. They are especially useful when working with
+            small, simple functions because of their concise syntax and help avoid unnecessary boilerplate code.
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 1em">✔ Arrow Function Syntax</h3>
+          <div class="code">
+            <pre><code><span class="kw">const</span> functionName <span class="op">=</span> (parameters) <span class="op">=&gt;</span> {
+  <span class="com">// function body</span>
+};</code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 1em">a. Simple Arrow Function (Implicit Return)</h3>
+          <p class="para">
+            If the function has only one expression, you can remove the
+            <code>{}</code>
+            and the
+            <span class="tag">return</span>
+            keyword. The expression value is returned automatically.
+          </p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">const</span> multiply <span class="op">=</span> (a, b) <span class="op">=&gt;</span> a * b;
+
+console.log(multiply(<span class="num">4</span>, <span class="num">5</span>)); <span class="com">// 20</span></code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 1em">b. Arrow Function With Multiple Statements</h3>
+          <p class="para">
+            When the function body has more than one statement, use
+            <code>{}</code>
+            and include an explicit
+            <span class="tag">return</span>
+            statement.
+          </p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">const</span> addNumbers <span class="op">=</span> (a, b) <span class="op">=&gt;</span> {
+  <span class="kw">let</span> sum <span class="op">=</span> a + b;
+  <span class="kw">return</span> sum;
+};</code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 1em">c. Arrow Function Without Parameters</h3>
+          <p class="para">
+            When there are no input values, use empty parentheses before the
+            <span class="tag">=&gt;</span>
+            arrow.
+          </p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">const</span> greet <span class="op">=</span> () <span class="op">=&gt;</span> console.log(<span class="str">"Hello!"</span>);</code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 1em">d. Arrow Function With One Parameter</h3>
+          <p class="para">If there is exactly one parameter, the parentheses around it are optional.</p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">const</span> square <span class="op">=</span> n <span class="op">=&gt;</span> n * n;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">13. Difference Between Normal Function &amp; Arrow Function</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Normal (regular) functions and arrow functions both allow us to define reusable blocks of code, but they behave differently in terms of syntax,
+            <span class="tag">this</span>
+            binding, availability of the
+            <span class="tag">arguments</span>
+            object, and where they are best used.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Feature Comparison :</h2>
+          <div style="overflow-x: auto; margin-top: 0.5em">
+            <table style="border-collapse: collapse; width: 100%; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #ffe8c2; text-align: left">Feature</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">Normal Function</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">Arrow Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Syntax</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Longer (uses the
+                    <span class="tag">function</span>
+                    keyword).
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Shorter (uses the
+                    <span class="tag">=&gt;</span>
+                    arrow syntax).
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    <span class="tag">this</span>
+                    binding
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Has its own
+                    <span class="tag">this</span>
+                    (depends on how it is called).
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Inherits
+                    <span class="tag">this</span>
+                    from surrounding scope (lexical
+                    <span class="tag">this</span>
+                    ).
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    <span class="tag">arguments</span>
+                    object
+                  </td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Available inside the function.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Not available (use rest parameters instead).</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Suitable for</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Object methods, constructor functions.</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">
+                    Callbacks, array methods (
+                    <code>map</code>
+                    ,
+                    <code>filter</code>
+                    ,
+                    <code>reduce</code>
+                    ).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">Example Showing This Difference</h2>
+          <p class="para">
+            In the example below, the normal function correctly uses
+            <span class="tag">this.name</span>
+            from the object, but the arrow function does not get its own
+            <span class="tag">this</span>
+            and therefore does not work as expected.
+          </p>
+
+          <div class="code">
+            <pre><code><span class="kw">const</span> person <span class="op">=</span> {
+  <span class="prop">name</span>: <span class="str">"Mitali"</span>,
+  <span class="prop">greet</span>: <span class="kw">function</span>() {
+    console.log(<span class="str">"Hello "</span> + <span class="kw">this</span>.name); <span class="com">// Works</span>
+  },
+  <span class="prop">greetArrow</span>: () <span class="op">=&gt;</span> {
+    console.log(<span class="str">"Hello "</span> + <span class="kw">this</span>.name); <span class="com">// ❌ undefined (no own this)</span>
+  }
+};
+
+person.greet();
+person.greetArrow();</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">14. Nested Functions (Function Inside Function)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript allows defining one function
+            <strong>inside another function</strong>
+            . Such functions are called
+            <strong>nested functions</strong>
+            . The outer function contains the inner function and can call it inside its body.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            The important point is that the
+            <strong>inner function has access to the variables of the outer function</strong>
+            . This is related to the concept of
+            <strong>closures</strong>
+            , where a function remembers the scope in which it was created.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">function</span> outer() {
+  <span class="kw">let</span> a <span class="op">=</span> <span class="num">5</span>;
+
+  <span class="kw">function</span> inner() {
+    console.log(a); <span class="com">// inner can access outer variables</span>
+  }
+
+  inner();
+}
+
+outer();</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border: 1px solid black; width: 100%" />
+      <br />
+      <h2>Arrays</h2>
+      <br />
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">14. Arrays: Introduction &amp; Indexing</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2" style="margin-top: 0.4em">1. What is an Array?</h2>
+          <p class="para">
+            An
+            <strong>array</strong>
+            in JavaScript is a data structure used to store
+            <strong>multiple values in a single variable</strong>
+            . Instead of creating many separate variables, arrays let you store lists of numbers, strings, objects, and more. Arrays are
+            <strong>ordered</strong>
+            , meaning each value has an index starting from
+            <span class="tag">0</span>
+            .
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            JavaScript arrays are
+            <strong>dynamic</strong>
+            , so you can add or remove elements at any time. Arrays are widely used in loops, data processing, API responses, and UI rendering.
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> numbers <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>];
+console.log(numbers[<span class="num">0</span>]); <span class="com">// 10</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">2. Array Indexing</h2>
+          <p class="para">
+            Each element in an array has a position called its
+            <strong>index</strong>
+            . Indexing in JavaScript arrays always starts from
+            <span class="tag">0</span>
+            .
+          </p>
+
+          <div style="overflow-x: auto; margin-top: 0.6em">
+            <table style="border-collapse: collapse; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.8em; background: #ffe8c2">Element</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">10</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">20</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">30</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">40</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.8em; background: #ffe8c2">Index</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">0</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">1</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">2</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.8em; background: #fff5e6">3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em">To access an element, use the array name followed by the index in square brackets.</p>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.6em">Access Example :</h3>
+          <div class="code">
+            <pre><code>numbers[<span class="num">2</span>]; <span class="com">// 30</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">15. Common Array Methods</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript arrays provide many
+            <strong>built-in methods</strong>
+            to add, remove, and search elements. Below are some of the most commonly used methods in day-to-day programming.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1em">push() &ndash; Add element at end</h2>
+          <p class="para">
+            Adds one or more elements to the
+            <strong>end</strong>
+            of an array and returns the new length.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>];
+nums.push(<span class="num">4</span>);
+console.log(nums); <span class="com">// [1, 2, 3, 4]</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">pop() &ndash; Remove element from end</h2>
+          <p class="para">
+            Removes and returns the
+            <strong>last</strong>
+            element of the array.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>];
+nums.pop();
+console.log(nums); <span class="com">// [1, 2]</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">shift() &ndash; Remove first element</h2>
+          <p class="para">
+            Removes and returns the
+            <strong>first</strong>
+            element of the array.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> items <span class="op">=</span> [<span class="str">"a"</span>, <span class="str">"b"</span>, <span class="str">"c"</span>];
+items.shift();
+console.log(items); <span class="com">// ["b", "c"]</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">unshift() &ndash; Add element at start</h2>
+          <p class="para">
+            Adds one or more elements to the
+            <strong>beginning</strong>
+            of the array and returns the new length.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> items <span class="op">=</span> [<span class="str">"b"</span>, <span class="str">"c"</span>];
+items.unshift(<span class="str">"a"</span>);
+console.log(items); <span class="com">// ["a", "b", "c"]</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">slice() &ndash; Extract a portion</h2>
+          <p class="para">
+            Returns a
+            <strong>shallow copy</strong>
+            of a portion of an array into a new array. It
+            <strong>does not change</strong>
+            the original array.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> arr <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>];
+<span class="kw">let</span> part <span class="op">=</span> arr.slice(<span class="num">1</span>, <span class="num">3</span>);
+console.log(part); <span class="com">// [20, 30]</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">indexOf() &ndash; Find position of value</h2>
+          <p class="para">
+            Returns the
+            <strong>index</strong>
+            of the first occurrence of a value in the array, or
+            <span class="tag">-1</span>
+            if not found.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> fruits <span class="op">=</span> [<span class="str">"apple"</span>, <span class="str">"banana"</span>, <span class="str">"orange"</span>];
+<span class="kw">let</span> index <span class="op">=</span> fruits.indexOf(<span class="str">"banana"</span>);
+console.log(index); <span class="com">// 1</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">16. Advanced Array Methods (Internal Looping)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript provides special array methods such as
+            <span class="tag">map()</span>
+            ,
+            <span class="tag">filter()</span>
+            , and
+            <span class="tag">reduce()</span>
+            , which internally use loops to process elements. These methods help avoid writing manual
+            <strong>for loops</strong>
+            , making code cleaner, shorter, and easier to understand.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            Although the code looks simple when using these methods, JavaScript actually performs hidden loop operations
+            <strong>behind the scenes</strong>
+            .
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1.2em">1. map() &mdash; Transform Every Element</h2>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.4em">Purpose</h3>
+          <p class="para">
+            <span class="tag">map()</span>
+            iterates through each element of an array and returns a
+            <strong>new array</strong>
+            where every value is transformed based on the given function (callback).
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Internal Working (concept)</h3>
+          <p class="para">
+            You can imagine
+            <span class="tag">map()</span>
+            doing this internally:
+          </p>
+          <ul style="margin-left: 2em; font-size: 1.02em; margin-top: 0.4em">
+            <li>for each item in the array:</li>
+            <li style="margin-left: 1.2em">apply callback function</li>
+            <li style="margin-left: 1.2em">store the transformed value in a new array</li>
+            <li>return new array</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Key Points</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              Does
+              <strong>not</strong>
+              modify the original array.
+            </li>
+            <li>
+              Always returns a
+              <strong>new array of same length</strong>
+              .
+            </li>
+            <li>Used for: doubling values, formatting strings, converting data, etc.</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> numbers <span class="op">=</span> [<span class="num">2</span>, <span class="num">5</span>, <span class="num">8</span>, <span class="num">10</span>, <span class="num">13</span>];
+<span class="kw">let</span> doubled <span class="op">=</span> numbers.map((n) <span class="op">=&gt;</span> n * <span class="num">2</span>);
+console.log(doubled); <span class="com">// [4, 10, 16, 20, 26]</span></code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Explanation</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              Each value
+              <span class="tag">n</span>
+              is multiplied by
+              <span class="num">2</span>
+              .
+            </li>
+            <li>
+              JavaScript performs the looping
+              <strong>behind the scenes</strong>
+              .
+            </li>
+            <li>A new array is created containing all the modified values.</li>
+          </ul>
+
+          <h2 class="sub2" style="margin-top: 1.4em">2. filter() &mdash; Select Matching Elements</h2>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.4em">Purpose</h3>
+          <p class="para">
+            <span class="tag">filter()</span>
+            returns a
+            <strong>new array</strong>
+            containing only the elements that satisfy a condition (true/false check).
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Internal Working (concept)</h3>
+          <p class="para">
+            You can imagine
+            <span class="tag">filter()</span>
+            doing this internally:
+          </p>
+          <ul style="margin-left: 2em; font-size: 1.02em; margin-top: 0.4em">
+            <li>for each item in the array:</li>
+            <li style="margin-left: 1.2em">
+              if callback returns
+              <span class="tag">true</span>
+              :
+            </li>
+            <li style="margin-left: 2.4em">push element to new array</li>
+            <li>return filtered array</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Key Points</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              Does
+              <strong>not</strong>
+              change the original array.
+            </li>
+            <li>
+              Returns a
+              <strong>shorter (or equal)</strong>
+              array.
+            </li>
+            <li>Used for: selecting even numbers, filtering students by marks, removing duplicates, etc.</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Example :</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> numbers <span class="op">=</span> [<span class="num">2</span>, <span class="num">5</span>, <span class="num">8</span>, <span class="num">10</span>, <span class="num">13</span>];
+<span class="kw">let</span> even <span class="op">=</span> numbers.filter((n) <span class="op">=&gt;</span> n <span class="op">%</span> <span class="num">2</span> <span class="op">===</span> <span class="num">0</span>);
+console.log(even); <span class="com">// [2, 8, 10]</span></code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Explanation</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              Condition checks if the number is divisible by
+              <span class="num">2</span>
+              .
+            </li>
+            <li>Only even values are included in the new array.</li>
+            <li>Internally, JavaScript loops through each value and performs the test.</li>
+          </ul>
+
+          <h2 class="sub2" style="margin-top: 1.4em">3. reduce() &mdash; Convert Array into a Single Value</h2>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.4em">Purpose</h3>
+          <p class="para">
+            <span class="tag">reduce()</span>
+            applies a function to all elements of an array and combines them into
+            <strong>one final result</strong>
+            (such as sum, product, total marks, etc.).
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Internal Working (concept)</h3>
+          <p class="para">
+            You can imagine
+            <span class="tag">reduce()</span>
+            doing this internally:
+          </p>
+          <ul style="margin-left: 2em; font-size: 1.02em; margin-top: 0.4em">
+            <li>
+              set an
+              <strong>accumulator</strong>
+              to the initial value (for example, 0)
+            </li>
+            <li>for each item in the array:</li>
+            <li style="margin-left: 1.2em">
+              accumulator
+              <span class="op">=</span>
+              callback(accumulator, currentElement)
+            </li>
+            <li>return the final accumulator</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Key Points</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>Can generate numbers, strings, or even objects.</li>
+            <li>
+              Very
+              <strong>powerful</strong>
+              method, used in many real-world cases.
+            </li>
+            <li>Used for: total marks, total price, flattening arrays, counting frequency, etc.</li>
+          </ul>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Example : Sum of All Values</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> numbers <span class="op">=</span> [<span class="num">2</span>, <span class="num">5</span>, <span class="num">8</span>, <span class="num">10</span>, <span class="num">13</span>];
+<span class="kw">let</span> sum <span class="op">=</span> numbers.reduce((acc, n) <span class="op">=&gt;</span> acc <span class="op">+</span> n, <span class="num">0</span>);
+console.log(sum); <span class="com">// 38</span></code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Explanation</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              <span class="tag">acc</span>
+              starts at
+              <span class="num">0</span>
+              (initial value).
+            </li>
+            <li>
+              Each number
+              <span class="tag">n</span>
+              is added to
+              <span class="tag">acc</span>
+              one by one.
+            </li>
+            <li>
+              Loop continues until the array is finished, and the
+              <strong>final result</strong>
+              is
+              <span class="num">38</span>
+              .
+            </li>
+          </ul>
+
+          <h2 class="sub2" style="margin-top: 1.6em">Visual Diagram of How These Methods Work</h2>
+          <p class="para" style="margin-top: 0.6em">
+            <strong>Original Array</strong>
+            :
+            <span class="tag">[2, 5, 8, 10, 13]</span>
+          </p>
+          <ul style="margin-left: 2em; font-size: 1.02em; margin-top: 0.4em">
+            <li>
+              <span class="tag">map()</span>
+
+              <span class="op"></span>
+              <span class="tag">[4, 10, 16, 20, 26]</span>
+            </li>
+            <li>
+              <span class="tag">filter()</span>
+
+              <span class="op"></span>
+              <span class="tag">[2, 8, 10]</span>
+            </li>
+            <li>
+              <span class="tag">reduce()</span>
+
+              <span class="op"></span>
+              <span class="num">38</span>
+            </li>
+          </ul>
+
+          <p class="para" style="margin-top: 0.8em">
+            Each method loops internally but returns
+            <strong>different types of results</strong>
+            :
+          </p>
+
+          <div style="overflow-x: auto; margin-top: 0.6em">
+            <table style="border-collapse: collapse; width: 100%; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #ffe8c2; text-align: left">Method</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">Loop Output</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">Returned Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">map()</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">transformed values</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">new array (same length)</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">filter()</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">condition check</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">new array (shorter)</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">reduce()</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">combine values</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">single value (number/string/object)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.4em">Final Example (All Three Together)</h2>
+          <div class="code">
+            <pre><code><span class="kw">var</span> numbers <span class="op">=</span> [<span class="num">2</span>, <span class="num">5</span>, <span class="num">8</span>, <span class="num">10</span>, <span class="num">13</span>];
+<span class="kw">let</span> doubled <span class="op">=</span> numbers.map(n <span class="op">=&gt;</span> n * <span class="num">2</span>);   <span class="com">// transforms</span>
+<span class="kw">let</span> even <span class="op">=</span> numbers.filter(n <span class="op">=&gt;</span> n <span class="op">%</span> <span class="num">2</span> <span class="op">===</span> <span class="num">0</span>); <span class="com">// selects</span>
+<span class="kw">let</span> sum <span class="op">=</span> numbers.reduce((acc, n) <span class="op">=&gt;</span> acc <span class="op">+</span> n, <span class="num">0</span>);  <span class="com">// combines</span>
+
+console.log(doubled); <span class="com">// [4, 10, 16, 20, 26]</span>
+console.log(even);    <span class="com">// [2, 8, 10]</span>
+console.log(sum);     <span class="com">// 38</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.4em">Bonus: forEach() and find()</h2>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.4em">forEach() &mdash; Loop through elements</h3>
+          <p class="para">
+            The
+            <span class="tag">forEach()</span>
+            method runs a given function once for
+            <strong>every element</strong>
+            in the array. It is mainly used when you want to
+            <strong>perform an action for each value</strong>
+            (like printing, updating DOM, or multiplying) but
+            <strong>do not need a new array</strong>
+            as the result.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            You can imagine
+            <span class="tag">forEach()</span>
+            as a loop that automatically moves through the array and passes each element to your callback function.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> arr <span class="op">=</span> [<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>];
+
+arr.forEach(n <span class="op">=&gt;</span> console.log(n));</code></pre>
+          </div>
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">Example: Multiply All Values</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> arr <span class="op">=</span> [<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>];
+<span class="kw">let</span> product <span class="op">=</span> <span class="num">1</span>;
+
+arr.forEach(n <span class="op">=&gt;</span> {
+  product <span class="op">*=</span> n;
+});
+
+console.log(product); <span class="com">// 24</span></code></pre>
+          </div>
+          <p class="para" style="margin-top: 0.6em">
+            Here the callback function multiplies the
+            <span class="tag">product</span>
+            variable by each value of
+            <span class="tag">n</span>
+            in the array. After the loop finishes, we get the final multiplication result.
+          </p>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">find() &mdash; Returns first matching value</h3>
+          <div class="code">
+            <pre><code><span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">3</span>, <span class="num">6</span>, <span class="num">8</span>];
+<span class="kw">let</span> f <span class="op">=</span> nums.find(n <span class="op">=&gt;</span> n <span class="op">&gt;</span> <span class="num">5</span>);
+console.log(f); <span class="com">// 6</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrays  -->
+
+      <!-- Objects -->
+
+      <hr style="border: 1px solid black; width: 100%" />
+      <br />
+      <h2>Object</h2>
+      <br />
+
+      <!-- Objects -->
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">17. Object &mdash; What is an Object?</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Objects in JavaScript are used to store data in
+            <strong>key&ndash;value pairs</strong>
+            . They represent real-world entities such as students, users, products, cars, and orders. Each property has a
+            <em>key</em>
+            (name) and a
+            <em>value</em>
+            (data).
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            Objects allow grouping related data together, making it easier to manage complex structured information. JavaScript heavily uses objects &mdash; arrays, functions, and even the browser's
+            DOM are all objects internally.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 1em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> student <span class="op">=</span> {
+  <span class="prop">name</span>: <span class="str">"Mitali"</span>,
+  <span class="prop">rollNumber</span>: <span class="num">21</span>,
+  <span class="prop">marks</span>: <span class="num">88</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">18. Object &mdash; Accessing Object Values</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            There are two main ways to read values from an object:
+            <strong>dot notation</strong>
+            and
+            <strong>bracket notation</strong>
+            .
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">1. Dot Notation</h2>
+          <p class="para">Used when you know the exact property name and it is a valid identifier (no spaces or special characters).</p>
+          <div class="code">
+            <pre><code>console.log(student.name);       <span class="com">// "Mitali"</span>
+console.log(student.marks);      <span class="com">// 88</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">2. Bracket Notation</h2>
+          <p class="para">
+            Used when the property name is stored in a variable or contains spaces / special characters. The key is written as a
+            <strong>string</strong>
+            inside square brackets.
+          </p>
+          <div class="code">
+            <pre><code>console.log(student[<span class="str">"marks"</span>]);    <span class="com">// 88</span>
+
+<span class="kw">let</span> key <span class="op">=</span> <span class="str">"name"</span>;
+console.log(student[key]);      <span class="com">// "Mitali"</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">19. Object &mdash; Adding, Updating &amp; Deleting Properties</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Objects are
+            <strong>mutable</strong>
+            , which means you can change their properties at any time &mdash; add new ones, update existing ones, or delete properties completely.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">1. Adding or Updating Properties</h2>
+          <p class="para">
+            Use dot or bracket notation with the
+            <span class="op">=</span>
+            operator. If the key already exists, its value is
+            <strong>updated</strong>
+            ; if it does not exist, a new key is
+            <strong>added</strong>
+            .
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> student <span class="op">=</span> {
+  <span class="prop">name</span>: <span class="str">"Mitali"</span>,
+  <span class="prop">rollNumber</span>: <span class="num">21</span>,
+  <span class="prop">marks</span>: <span class="num">88</span>
+};
+
+student.marks <span class="op">=</span> <span class="num">92</span>;        <span class="com">// update existing property</span>
+student.city <span class="op">=</span> <span class="str">"Pune"</span>;   <span class="com">// add new property</span></code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">2. Deleting a Property</h2>
+          <p class="para">
+            Use the
+            <span class="tag">delete</span>
+            operator to remove a property completely from the object.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">delete</span> student.rollNumber;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">20. Complete Program &amp; Looping with for...in</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2">1. Object Program (Display Details)</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> student <span class="op">=</span> {
+  <span class="prop">name</span>: <span class="str">"Mitali"</span>,
+  <span class="prop">rollNumber</span>: <span class="num">21</span>,
+  <span class="prop">marks</span>: <span class="num">88</span>
+};
+
+console.log(<span class="str">"Name:"</span>, student.name);
+console.log(<span class="str">"Roll:"</span>, student.rollNumber);
+console.log(<span class="str">"Marks:"</span>, student.marks);</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">2. Looping Through Objects &mdash; for...in</h2>
+          <p class="para">
+            The
+            <span class="tag">for...in</span>
+            loop is used to iterate over the
+            <strong>keys</strong>
+            (property names) of an object. For each key, you can access the corresponding value using bracket notation.
+          </p>
+          <div class="code">
+            <pre><code><span class="kw">let</span> user <span class="op">=</span> { <span class="prop">name</span>: <span class="str">"Mitali"</span>, <span class="prop">age</span>: <span class="num">21</span> };
+
+<span class="kw">for</span> (<span class="kw">let</span> key <span class="kw">in</span> user) {
+  console.log(key, user[key]);
+}</code></pre>
+          </div>
+
+          <h3 class="sub2" style="font-size: 1.05em; margin-top: 0.8em">How this loop works (step-by-step)</h3>
+          <ul style="margin-left: 2em; font-size: 1.02em">
+            <li>
+              <span class="tag">for...in</span>
+              picks each property name (key) from the
+              <span class="tag">user</span>
+              object one by one.
+            </li>
+            <li>
+              In every iteration, the
+              <span class="tag">key</span>
+              variable holds a different property name like
+              <span class="str">"name"</span>
+              or
+              <span class="str">"age"</span>
+              .
+            </li>
+            <li>
+              We use
+              <span class="tag">user[key]</span>
+              (bracket notation) to read the value of that property.
+            </li>
+            <li>This pattern is very useful when you need to inspect or print all properties of an object without knowing the property names in advance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">21. Array of Objects</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            An
+            <strong>array of objects</strong>
+            is commonly used to store lists of similar records such as students, products, or users. Each element of the array is its own object with properties.
+          </p>
+          <p class="para" style="margin-top: 0.6em">This pattern is very common in APIs, databases, and tables where you need to handle multiple rows of structured data.</p>
+
+          <h2 class="sub2" style="margin-top: 1em">Example :</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> students <span class="op">=</span> [
+  { <span class="prop">name</span>: <span class="str">"Mitali"</span>, <span class="prop">marks</span>: <span class="num">90</span> },
+  { <span class="prop">name</span>: <span class="str">"Riya"</span>,   <span class="prop">marks</span>: <span class="num">85</span> },
+  { <span class="prop">name</span>: <span class="str">"Amit"</span>,   <span class="prop">marks</span>: <span class="num">78</span> }
+];
+
+console.log(students[<span class="num">1</span>].name); <span class="com">// Riya</span></code></pre>
+          </div>
+          <p class="para" style="margin-top: 0.6em">
+            Here,
+            <span class="tag">students[1]</span>
+            selects the
+            <strong>second object</strong>
+            in the array, and
+            <span class="tag">.name</span>
+            reads its
+            <span class="str">"Riya"</span>
+            value.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">22. null vs undefined (Object Related)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Both
+            <span class="tag">null</span>
+            and
+            <span class="tag">undefined</span>
+            represent
+            <strong>"no value"</strong>
+            , but they are used in slightly different situations.
+          </p>
+
+          <div style="overflow-x: auto; margin-top: 0.8em">
+            <table style="border-collapse: collapse; width: 100%; font-size: 1.02em">
+              <thead>
+                <tr>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #ffe8c2; text-align: left">Feature</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">null</th>
+                  <th style="border: 1px solid #555; padding: 0.4em 0.6em; background: #fff5e6; text-align: left">undefined</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Meaning</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">intentional empty</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">value not assigned</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Type</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">object</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">undefined</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Set by</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">developer</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">JavaScript</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">Use</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">reset / clear values</td>
+                  <td style="border: 1px solid #555; padding: 0.4em 0.6em">missing or not initialized values</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em">
+            In object logic you often set a property to
+            <span class="tag">null</span>
+            when you know it exists but want to mark it as
+            <em>empty for now</em>
+            . If a property is
+            <span class="tag">undefined</span>
+            , it usually means it was never assigned or the key does not exist.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">23. Object &mdash; == vs === inside Object Logic</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            JavaScript has two equality operators:
+            <span class="tag">==</span>
+            (loose) and
+            <span class="tag">===</span>
+            (strict). When working with objects and conditions, using
+            <span class="tag">===</span>
+            avoids unexpected type conversions.
+          </p>
+
+          <h2 class="sub2" style="margin-top: 0.8em">Example :</h2>
+          <div class="code">
+            <pre><code>console.log(<span class="num">5</span> <span class="op">==</span> <span class="str">"5"</span>);   <span class="com">// true  (values are equal after conversion)</span>
+console.log(<span class="num">5</span> <span class="op">===</span> <span class="str">"5"</span>);  <span class="com">// false (type number vs string)</span></code></pre>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em">
+            In object checks (for example comparing IDs inside objects), prefer
+            <span class="tag">===</span>
+            so that
+            <span class="num">5</span>
+            and
+            <span class="str">"5"</span>
+            are treated as
+            <strong>different</strong>
+            values unless you intentionally want automatic type conversion.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Pattern -->
+
+      <hr style="border: 1px solid black; width: 100%" />
+      <br />
+      <h2>Pattern</h2>
+      <br />
+
+      <!-- Pattern -->
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="sub1" style="font-size: 1.4em">Pattern Printing Programs</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Pattern printing tests understanding of nested loops. Outer loop controls rows; inner loop controls columns.
+          </p>
+          <h2 class="sub2" style="margin-top: 1.2em">Pattern 1:</h2>
+          <div class="code">
+            <pre><code>1
+12
+123
+1234
+12345</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">Code:</h2>
+          <div class="code">
+            <pre><code><span class="kw">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>; i <span class="op">&lt;=</span> <span class="num">5</span>; i<span class="op">++</span>) {
+  <span class="kw">let</span> row <span class="op">=</span> <span class="str">""</span>;
+  <span class="kw">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="num">1</span>; j <span class="op">&lt;=</span> i; j<span class="op">++</span>) {
+    row <span class="op">+=</span> j;
+  }
+  console.log(row);
+}</code></pre>
+          </div>
+
+          <h2 class="sub2" style="margin-top: 1.2em">Pattern 2: Reverse Number Triangle</h2>
+          <div class="code">
+            <pre><code>12345
+1234
+123
+12
+1</code></pre>
+          </div>
+          <h2 class="sub2" style="margin-top: 1.2em">Code:</h2>
+          <div class="code">
+            <pre><code><span class="kw">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="num">5</span>; i <span class="op">&gt;=</span> <span class="num">1</span>; i<span class="op">--</span>) {
+  <span class="kw">let</span> row <span class="op">=</span> <span class="str">""</span>;
+  <span class="kw">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="num">1</span>; j <span class="op">&lt;=</span> i; j<span class="op">++</span>) {
+    row <span class="op">+=</span> j;
+  }
+  console.log(row);
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border: 1px solid black; width: 100%" />
+      <br />
+      <h2>Loop-Based Programs</h2>
+      <br />
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="sub1" style="font-size: 1.4em">Loop with forEach</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2">Example:</h2>
+          <div class="code">
+            <pre><code><span class="kw">let</span> arr <span class="op">=</span> [<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>];
+<span class="kw">let</span> product <span class="op">=</span> <span class="num">1</span>;
+
+arr.forEach(n <span class="op">=&gt;</span> {
+  product <span class="op">*=</span> n;
+});
+
+console.log(product); <span class="com">// 24</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="sub1" style="font-size: 1.4em">Multiplication Table (Up to 10)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <div class="code">
+            <pre><code><span class="kw">function</span> table(num) {
+  <span class="kw">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="num">1</span>; i <span class="op">&lt;=</span> <span class="num">10</span>; i<span class="op">++</span>) {
+    console.log(<span class="str">`</span><span class="str">${num}</span><span class="str"> x </span><span class="str">${i}</span><span class="str"> = </span><span class="str">${num * i}</span><span class="str">`</span>);
+  }
+}
+
+table(<span class="num">5</span>);</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="sub1" style="font-size: 1.4em">Simple Calculator (Add, Subtract, Multiply, Divide)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+            <div class="code">
+                <pre><code><span class="kw">function</span> calc(a, b, op) {
+  <span class="kw">if</span> (op <span class="op">===</span> <span class="str">"+"</span>) <span class="kw">return</span> a <span class="op">+</span> b;
+  <span class="kw">if</span> (op <span class="op">===</span> <span class="str">"-"</span>) <span class="kw">return</span> a <span class="op">-</span> b;
+  <span class="kw">if</span> (op <span class="op">===</span> <span class="str">"*"</span>) <span class="kw">return</span> a <span class="op">*</span> b;
+  <span class="kw">if</span> (op <span class="op">===</span> <span class="str">"/"</span>) <span class="kw">return</span> a <span class="op">/</span> b;
+}
+
+console.log(calc(<span class="num">10</span>, <span class="num">5</span>, <span class="str">"+"</span>));</code></pre>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll(".topic-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const topic = header.parentElement;
+          const isOpen = topic.classList.contains("open");
+
+          document.querySelectorAll(".topic").forEach((t) => {
+            t.classList.remove("open");
+            const toggle = t.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "+";
+          });
+
+          if (!isOpen) {
+            topic.classList.add("open");
+            const toggle = topic.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "-";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

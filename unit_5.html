@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End_Sem - Unit 5 (DOM, Events &amp; User Interaction)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+      }
+      .back-btn {
+        margin: 1em 0;
+        align-self: flex-start;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 0.4em 0.9em;
+        border-radius: 999px;
+        font-size: 0.95em;
+        font-weight: 600;
+      }
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+      main {
+        display: flex;
+        padding: 2em 5em 2em 5em;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        background-color: bisque;
+        border-radius: 2em;
+        width: 95vw;
+        flex-direction: column;
+      }
+      .main-title {
+        text-align: center;
+        margin: 2em 0em 2em 0em;
+      }
+      .para {
+        font-size: 1.1em;
+        margin: 0;
+      }
+      .subhead {
+        margin: 1em 0em 1em 0em;
+      }
+      .sub2 {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      .topic {
+        border-radius: 1em;
+        background: #fff7e6;
+        margin: 0.75em 0;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+      .topic-header {
+        padding: 0.8em 1.2em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .topic-header h2 {
+        margin: 0;
+      }
+      .topic-toggle {
+        font-size: 1.1em;
+        font-weight: 700;
+      }
+      .topic-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.6em;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+      .topic.open .topic-body {
+        max-height: none;
+        padding: 0 1.6em 1.4em 1.6em;
+      }
+      ul.para {
+        font-size: 1.02em;
+      }
+      .code {
+        margin: 1em 2em 0em 2em;
+        background-color: rgb(255, 240, 154);
+        padding: 1em;
+        border-radius: 1em;
+        border: 0.08em solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h1 class="main-title">Unit 5 &mdash; DOM, Events &amp; User Interaction</h1>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">1. Introduction to DOM (Document Object Model)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            The
+            <strong>DOM</strong>
+            is a programming interface that represents the webpage as a
+            <strong>tree-like structure</strong>
+            where every element (tags, attributes, and text) becomes a
+            <strong>node</strong>
+            . JavaScript can access, read, update, delete, or create elements using the DOM. It allows developers to make web pages interactive &mdash; such as showing messages, hiding elements,
+            changing styles, validating forms, or responding to user input.
+          </p>
+          <p class="para" style="margin-top: 0.6em">The DOM is created by the browser when it reads the HTML file.</p>
+
+          <h3 class="sub2" style="margin-top: 1em">✔ Diagram of DOM Tree (Text View)</h3>
+          <pre class="code" style="margin-top: 0.6em; white-space: pre; font-family: inherit">
+Document
+└── html
+    ├── head
+    └── body
+        ├── h1
+        ├── p
+        └── button
+          </pre>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">2. Accessing DOM Elements</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">We use JavaScript methods to select HTML elements.</p>
+
+          <h3 class="sub2" style="margin-top: 1em">Common DOM Selectors</h3>
+          <table class="para" style="margin-top: 0.6em; border-collapse: collapse; width: 100%">
+            <thead>
+              <tr>
+                <th style="border: 1px solid #333; padding: 0.4em 0.6em; text-align: left">Method</th>
+                <th style="border: 1px solid #333; padding: 0.4em 0.6em; text-align: left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>document.getElementById()</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Selects element by id</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>document.getElementsByClassName()</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Selects elements by class</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>document.getElementsByTagName()</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Selects elements by tag</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>document.querySelector()</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Selects first matching element</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>document.querySelectorAll()</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Selects all matching elements</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="sub2" style="margin-top: 1em">Example</h3>
+          <p class="para" style="margin-top: 0.4em"><strong>HTML</strong></p>
+          <div class="code">
+            <code>&lt;h1 id="title"&gt;Hello&lt;/h1&gt;</code>
+            <br />
+            <code>&lt;p class="msg"&gt;Welcome!&lt;/p&gt;</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em"><strong>JavaScript</strong></p>
+          <div class="code">
+            <code>let heading = document.getElementById("title");</code>
+            <br />
+            <code>let text = document.querySelector(".msg");</code>
+            <br />
+            <br />
+            <code>console.log(heading.innerText);</code>
+            <br />
+            <code>console.log(text.innerText);</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">3. Manipulating DOM Elements (Changing Content, Style, Attributes)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            <strong>DOM manipulation</strong>
+            means modifying the webpage dynamically using JavaScript.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Change Text</h3>
+          <div class="code">
+            <code>document.getElementById("title").innerText = "Updated Title";</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Change HTML</h3>
+          <div class="code">
+            <code>document.getElementById("box").innerHTML = "&lt;b&gt;Bold Text&lt;/b&gt;";</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Change CSS Style</h3>
+          <div class="code">
+            <code>document.getElementById("title").style.color = "blue";</code>
+            <br />
+            <code>document.getElementById("title").style.fontSize = "30px";</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Change Attributes</h3>
+          <div class="code">
+            <code>document.getElementById("img").src = "photo.png";</code>
+            <br />
+            <code>document.getElementById("btn").disabled = true;</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Add/Remove Classes</h3>
+          <div class="code">
+            <code>element.classList.add("active");</code>
+            <br />
+            <code>element.classList.remove("hidden");</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">4. Events in JavaScript (Very Important)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            Events are actions that happen on a webpage (clicking, typing, scrolling). JavaScript allows you to
+            <strong>respond</strong>
+            to these actions.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">✔ Common Events</h3>
+          <table class="para" style="margin-top: 0.6em; border-collapse: collapse; width: 100%">
+            <thead>
+              <tr>
+                <th style="border: 1px solid #333; padding: 0.4em 0.6em; text-align: left">Event</th>
+                <th style="border: 1px solid #333; padding: 0.4em 0.6em; text-align: left">Fired When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>click</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">User clicks a button</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>mouseover</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Mouse enters element</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>mouseout</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Mouse leaves element</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>keyup</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Key is released</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>keydown</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Key is pressed</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>submit</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Form is submitted</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em"><code>change</code></td>
+                <td style="border: 1px solid #333; padding: 0.4em 0.6em">Input value changes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">5. Adding Events (3 Methods)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em"><strong>Method 1: Inline Event (HTML)</strong></p>
+          <div class="code">
+            <code>&lt;button onclick="greet()"&gt;Click&lt;/button&gt;</code>
+            <br />
+            <br />
+            <code>&lt;script&gt;</code>
+            <br />
+            <code>function greet() {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Hello!");</code>
+            <br />
+            <code>}</code>
+            <br />
+            <code>&lt;/script&gt;</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em"><strong>Method 2: Using DOM Property</strong></p>
+          <div class="code">
+            <code>let btn = document.getElementById("btn");</code>
+            <br />
+            <code>btn.onclick = function () {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Button Clicked!");</code>
+            <br />
+            <code>};</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em">
+            <strong>
+              Method 3:
+              <code>addEventListener()</code>
+              ⭐ (MOST IMPORTANT)
+            </strong>
+          </p>
+          <div class="code">
+            <code>btn.addEventListener("click", () =&gt; {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Button Pressed");</code>
+            <br />
+            <code>});</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em">
+            <strong>
+              Why
+              <code>addEventListener()</code>
+              ?
+            </strong>
+          </p>
+          <ul class="para" style="margin-top: 0.4em; padding-left: 1.4em">
+            <li>✔ Allows multiple events on same element</li>
+            <li>✔ Cleaner and easier to manage</li>
+            <li>✔ Supports advanced features (like removing listeners, options)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. Responding to User Input (Forms &amp; Buttons)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            JavaScript reads user input using the
+            <code>.value</code>
+            property.
+          </p>
+
+          <p class="para" style="margin-top: 0.8em"><strong>Example: Getting Input Value</strong></p>
+          <p class="para" style="margin-top: 0.4em"><strong>HTML:</strong></p>
+          <div class="code">
+            <code>&lt;input type="text" id="nameInput"&gt;</code>
+            <br />
+            <code>&lt;button id="btn"&gt;Submit&lt;/button&gt;</code>
+            <br />
+            <code>&lt;p id="output"&gt;&lt;/p&gt;</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em"><strong>JavaScript:</strong></p>
+          <div class="code">
+            <code>document.getElementById("btn").addEventListener("click", function () {</code>
+            <br />
+            <code>&nbsp;&nbsp;let name = document.getElementById("nameInput").value;</code>
+            <br />
+            <code>&nbsp;&nbsp;document.getElementById("output").innerText = "Hello " + name;</code>
+            <br />
+            <code>});</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">7. Basic Form Validation (Exam Important)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            <strong>Validation</strong>
+            checks if the form input is correct before submitting.
+          </p>
+
+          <p class="para" style="margin-top: 0.8em"><strong>Example: Required Field Check</strong></p>
+          <div class="code">
+            <code>let email = document.getElementById("email").value;</code>
+            <br />
+            <br />
+            <code>if (email === "") {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Email is required");</code>
+            <br />
+            <code>}</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em"><strong>Example: Check Minimum Length</strong></p>
+          <div class="code">
+            <code>let pass = document.getElementById("pass").value;</code>
+            <br />
+            <br />
+            <code>if (pass.length &lt; 6) {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Password must be at least 6 characters");</code>
+            <br />
+            <code>}</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em"><strong>Example: Validate Number Input</strong></p>
+          <div class="code">
+            <code>if (isNaN(age)) {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Enter valid number");</code>
+            <br />
+            <code>}</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">8. Creating &amp; Removing DOM Elements</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h3 class="sub2" style="margin-top: 0.8em">Create Element</h3>
+          <div class="code">
+            <code>let p = document.createElement("p");</code>
+            <br />
+            <code>p.innerText = "New Paragraph";</code>
+            <br />
+            <br />
+            <code>document.body.appendChild(p);</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Remove Element</h3>
+          <div class="code">
+            <code>document.getElementById("box").remove();</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">9. Script Loading in HTML</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">JavaScript can be loaded into HTML in 3 ways.</p>
+
+          <h3 class="sub2" style="margin-top: 0.8em">1. Inline Script</h3>
+          <div class="code">
+            <code>&lt;button onclick="alert('Hi')"&gt;Click&lt;/button&gt;</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">2. Internal Script</h3>
+          <div class="code">
+            <code>&lt;script&gt;</code>
+            <br />
+            <code>&nbsp;&nbsp;console.log("Internal Script");</code>
+            <br />
+            <code>&lt;/script&gt;</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">3. External Script (BEST)</h3>
+          <div class="code">
+            <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">10. Event Examples</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h3 class="sub2" style="margin-top: 0.6em">Change Background Color on Click</h3>
+          <div class="code">
+            <code>document.getElementById("btn").addEventListener("click", function () {</code>
+            <br />
+            <code>&nbsp;&nbsp;document.body.style.background = "yellow";</code>
+            <br />
+            <code>});</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Show/Hide Text</h3>
+          <div class="code">
+            <code>function hideText() {</code>
+            <br />
+            <code>&nbsp;&nbsp;document.getElementById("msg").style.display = "none";</code>
+            <br />
+            <code>}</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Counter Program</h3>
+          <div class="code">
+            <code>let count = 0;</code>
+            <br />
+            <code>btn.addEventListener("click", () =&gt; {</code>
+            <br />
+            <code>&nbsp;&nbsp;count++;</code>
+            <br />
+            <code>&nbsp;&nbsp;output.innerText = count;</code>
+            <br />
+            <code>});</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">11. Practical Example &mdash; Form Validation + DOM Update</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            This example combines
+            <strong>form validation</strong>
+            and
+            <strong>DOM update</strong>
+            . We check if an email is valid and then update a
+            <code>&lt;p&gt;</code>
+            element's text and color based on the result.
+          </p>
+
+          <p class="para" style="margin-top: 0.8em"><strong>HTML:</strong></p>
+          <div class="code">
+            <code>&lt;input id="email" placeholder="Enter email"&gt;</code>
+            <br />
+            <code>&lt;button id="check"&gt;Validate&lt;/button&gt;</code>
+            <br />
+            <code>&lt;p id="result"&gt;&lt;/p&gt;</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em"><strong>JavaScript:</strong></p>
+          <div class="code">
+            <code>check.addEventListener("click", () =&gt; {</code>
+            <br />
+            <code>&nbsp;&nbsp;let mail = email.value;</code>
+            <br />
+            <br />
+            <code>&nbsp;&nbsp;if (mail.includes("@")) {</code>
+            <br />
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;result.innerText = "Valid Email";</code>
+            <br />
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;result.style.color = "green";</code>
+            <br />
+            <code>&nbsp;&nbsp;} else {</code>
+            <br />
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;result.innerText = "Invalid Email";</code>
+            <br />
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;result.style.color = "red";</code>
+            <br />
+            <code>&nbsp;&nbsp;}</code>
+            <br />
+            <code>});</code>
+          </div>
+
+          <p class="para" style="margin-top: 1em"><strong>Explanation:</strong></p>
+          <ul class="para" style="margin-top: 0.4em; padding-left: 1.4em">
+            <li>
+              The button with id
+              <code>check</code>
+              listens for a
+              <code>click</code>
+              event.
+            </li>
+            <li>
+              On click, we read the value from the input with id
+              <code>email</code>
+              into variable
+              <code>mail</code>
+              .
+            </li>
+            <li>
+              We do a simple check using
+              <code>includes("@")</code>
+              to see if the email contains
+              <code>@</code>
+              .
+            </li>
+            <li>
+              If valid, we update the paragraph with id
+              <code>result</code>
+              to show "Valid Email" in green color.
+            </li>
+            <li>If invalid, we show "Invalid Email" in red color.</li>
+            <li>This shows how events, validation, and DOM styling work together in a real mini-project.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">12. Notes for "Recreate Layout Using DOM" Questions</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            In exams you may be asked to
+            <strong>create a layout using JavaScript + DOM</strong>
+            instead of writing plain HTML. Students must know how to:
+          </p>
+
+          <div class="code" style="margin-top: 0.8em">
+            <code>// 1. Create element</code>
+            <br />
+            <code>const div = document.createElement("div");</code>
+            <br />
+            <br />
+            <code>// 2. Set text</code>
+            <br />
+            <code>div.innerText = "Hello DOM";</code>
+            <br />
+            <br />
+            <code>// 3. Add attributes (id, class)</code>
+            <br />
+            <code>div.id = "box";</code>
+            <br />
+            <code>div.setAttribute("class", "card");</code>
+            <br />
+            <br />
+            <code>// 4. Apply styles</code>
+            <br />
+            <code>div.style.backgroundColor = "lightblue";</code>
+            <br />
+            <code>div.style.padding = "10px";</code>
+            <br />
+            <br />
+            <code>// 5. Append into page</code>
+            <br />
+            <code>document.body.appendChild(div);</code>
+            <br />
+            <br />
+            <code>// 6. Attach event</code>
+            <br />
+            <code>div.addEventListener("click", () =&gt; {</code>
+            <br />
+            <code>&nbsp;&nbsp;alert("Div clicked!");</code>
+            <br />
+            <code>});</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.8em">
+            <strong>Tip for answers:</strong>
+            write the steps clearly in order (Create &rarr; Set text/attributes &rarr; Style &rarr; Append &rarr; Add events). This shows full understanding of building UI with the DOM.
+          </p>
+        </div>
+      </div>
+
+      <!-- More topics for Unit 5 can be added below -->
+    </main>
+
+    <script>
+      document.querySelectorAll(".topic-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const topic = header.parentElement;
+          const isOpen = topic.classList.contains("open");
+
+          document.querySelectorAll(".topic").forEach((t) => {
+            t.classList.remove("open");
+            const toggle = t.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "+";
+          });
+
+          if (!isOpen) {
+            topic.classList.add("open");
+            const toggle = topic.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "-";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

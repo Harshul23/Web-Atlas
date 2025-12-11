@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End_Sem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+      }
+      nav {
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5vh;
+        width: 95vw;
+        border-radius: 1em;
+        background-color: black;
+      }
+      .logo {
+        height: 2em;
+        width: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: white;
+        color: black;
+        font-weight: 900;
+      }
+      .navlinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8em;
+        color: white;
+        list-style: none;
+      }
+      .navbtn {
+        border: none;
+        border-radius: 2em;
+        background-color: rgb(255, 102, 0);
+        padding: 1em;
+        color: white;
+        font-weight: 700;
+      }
+      .back-btn {
+        margin: 1em 0;
+        align-self: flex-start;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 0.4em 0.9em;
+        border-radius: 999px;
+        font-size: 0.95em;
+        font-weight: 600;
+      }
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+      main {
+        display: flex;
+        padding: 2em 5em 2em 5em;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        background-color: bisque;
+        border-radius: 2em;
+        width: 95vw;
+        flex-direction: column;
+        h1 {
+          text-align: center;
+          margin: 2em 0em 2em 0em;
+        }
+        p {
+          font-size: 1.2em;
+        }
+      }
+      .subhead {
+        margin: 1em 0em 1em 0em;
+      }
+      .sub2 {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      .code {
+        margin: 1em 2em 0em 2em;
+        background-color: rgb(255, 244, 183);
+        padding: 1em;
+        border-radius: 1em;
+        border: 0.08em solid black;
+      }
+      .para {
+        margin: 0;
+      }
+      .tag {
+        background-color: rgb(170, 255, 255);
+        border-radius: 0.5em;
+        padding: 0.2em 0.6em 0.2em 0.6em;
+        font-family: monospace;
+      }
+
+      /* Accordion topic wrapper */
+      .topic {
+        border-radius: 1em;
+        background: #fff7e6;
+        margin: 0.75em 0;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+
+      .topic-header {
+        padding: 0.8em 1.2em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .topic-header h2 {
+        margin: 0;
+      }
+
+      .topic-toggle {
+        font-size: 1.1em;
+        font-weight: 700;
+      }
+
+      .topic-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.6em;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+
+      .topic.open .topic-body {
+        max-height: 2000px; /* large enough to fit content */
+        padding: 0 1.6em 1.4em 1.6em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h1>UNIT – 1: HTML BASICS & STRUCTURE</h1>
+      <div class="topic open">
+        <div class="topic-header">
+          <h2 class="subhead">1. What is HTML? (HyperText Markup Language)</h2>
+          <span class="topic-toggle">−</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            HTML is the standard language used to create the structure of webpages. It defines what appears on the browser-headings, text, images, videos, tables, buttons, and forms. HTML does not
+            control styling (CSS does) or dynamic behavior (JS does). When a webpage loads, the browser reads the HTML first and converts it into a DOM (Document Object Model), a tree-like structure
+            where every tag becomes a node.
+          </p>
+          <h2 class="sub2">Examples :</h2>
+          <div class="code">
+            <pre><code>&lt;h1&gt;Hello World&lt;/h1&gt;</code></pre>
+            <pre><code>&lt;p&gt;This is my first webpage.&lt;/p&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">2. How Browser, Server & HTML Work Together</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            When you type a website URL:
+            <br />
+          </p>
+          <pre>
+    User  ----  browser  ----  Server  ----  Html/CSS/JS files  ---  Browser Renders Page
+          </pre>
+          <p>
+            - The browser sends the requist to the Server
+            <br />
+            - The server sends the html (Structure) / CSS (Styling) / JS (behavior).
+            <br />
+            - The browser constructs the DOM.
+            <br />
+            - CSS styling is applied.
+            <br />
+            - Java script adds interactivity. (click, hover, animations).
+            <br />
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">3. HTML tags and attributes</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2">Tags :</h2>
+          <p class="para">Html uses tags to reprasents elements.</p>
+          <h2 class="sub2">Type of tags :</h2>
+          <div class="code">
+            <pre><code>Paired tags : &lt;p&gt;.........&lt;/p&gt;</code></pre>
+            <pre><code>Self closing : &lt;br&gt;,  &lt;img&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Attributes :</h2>
+          <p class="para">Use to give properties to tags.</p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;img src="pic.png" alt="Profile Picture" width="200"&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Commn Attributes :</h2>
+          <p class="para">
+            <span class="tag">id</span>
+            - unique identifier
+            <br />
+            <span class="tag">class</span>
+            - used for CSS
+            <br />
+            <span class="tag">src</span>
+            - image path
+            <br />
+            <span class="tag">href</span>
+            - used in links
+            <br />
+            <span class="tag">type</span>
+            - used in form
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">4. Headings and Paragraphs</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p>Html provide six heading levels</p>
+          <pre><code>&lt;h1&gt;.... to .....&lt;h6&gt;</code></pre>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;h1&gt;this is h1 tag &lt;/h1&gt;</code></pre>
+            <pre><code>&lt;h2&gt;this is h2 tag&lt;/h2&gt;</code></pre>
+            <pre><code>&lt;p&gt;This is a simple Paragraph&lt;/p&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. Lists (Ordered, Unordered, Nested)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Lists are used to group related items like steps, menus, features, or topics. Each item is wrapped inside an
+            <span class="tag">&lt;li&gt;</span>
+            (list item) tag.
+          </p>
+          <h2 class="sub2">Unordered List :</h2>
+          <p class="para">Displays bullet points (●) without any specific order.</p>
+          <div class="code">
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;HTML&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Ordered List :</h2>
+          <p class="para">Displays items in a numbered order (1, 2, 3...). Useful for steps or rankings.</p>
+          <div class="code">
+            <pre><code>&lt;ol&gt;
+    &lt;li&gt;Step 1&lt;/li&gt;
+    &lt;li&gt;Step 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Nested List :</h2>
+          <p class="para">A list inside another list. Helpful to show sub-topics or categories.</p>
+          <div class="code">
+            <pre><code>&lt;ul&gt;
+    &lt;li&gt;Frontend
+        &lt;ul&gt;
+            &lt;li&gt;HTML&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">7. HTML Attributes</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            HTML attributes are extra pieces of information added to tags to control their behavior, appearance, or identity. They are always written inside the opening tag in
+            <span class="tag">name="value"</span>
+            format.
+          </p>
+          <p class="para">Attributes help identify elements, link files, add styling hooks, and create tooltips or labels.</p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;img src="image.jpg" alt="My Photo" width="200"&gt;</code></pre>
+            <pre><code>&lt;p id="msg" class="highlight" title="Greeting"&gt;Hello&lt;/p&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Common Attributes :</h2>
+          <p class="para">
+            <span class="tag">id</span>
+            – unique identifier for a single element
+            <br />
+            <span class="tag">class</span>
+            – groups elements for CSS styling
+            <br />
+            <span class="tag">src</span>
+            – source path for images, audio, video, etc.
+            <br />
+            <span class="tag">href</span>
+            – URL for links in the
+            <span class="tag">&lt;a&gt;</span>
+            tag
+            <br />
+            <span class="tag">alt</span>
+            – alternative text for images (important for accessibility)
+            <br />
+            <span class="tag">title</span>
+            – shows tooltip text on hover
+            <br />
+            <span class="tag">type</span>
+            – defines input type in forms (text, password, email, etc.)
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">8. Semantic Tags</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Semantic tags give meaningful names to parts of a webpage. Unlike a generic
+            <span class="tag">&lt;div&gt;</span>
+            , they tell the browser and search engines what type of content is inside. This improves SEO, accessibility, and code readability.
+          </p>
+          <p class="para">
+            Common semantic tags include
+            <span class="tag">&lt;header&gt;</span>
+            ,
+            <span class="tag">&lt;footer&gt;</span>
+            ,
+            <span class="tag">&lt;main&gt;</span>
+            ,
+            <span class="tag">&lt;section&gt;</span>
+            ,
+            <span class="tag">&lt;nav&gt;</span>
+            ,
+            <span class="tag">&lt;article&gt;</span>
+            , and
+            <span class="tag">&lt;aside&gt;</span>
+            .
+          </p>
+          <p class="para">
+            For example,
+            <span class="tag">&lt;article&gt;</span>
+            represents a self‑contained piece of content like a blog post, while
+            <span class="tag">&lt;section&gt;</span>
+            groups related content.
+          </p>
+          <h2 class="sub2">Examples :</h2>
+          <div class="code">
+            <pre><code>&lt;header&gt;Website Header&lt;/header&gt;
+&lt;article&gt;News Article Content&lt;/article&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">9. Structure of an HTML Document</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            A complete HTML page follows a fixed structure so the browser knows how to interpret it. It starts with the
+            <span class="tag">&lt;!DOCTYPE html&gt;</span>
+            declaration which tells the browser this is an HTML5 document.
+          </p>
+          <p class="para">
+            The root
+            <span class="tag">&lt;html&gt;</span>
+            element contains two main sections:
+            <span class="tag">&lt;head&gt;</span>
+            and
+            <span class="tag">&lt;body&gt;</span>
+            . The
+            <span class="tag">&lt;head&gt;</span>
+            stores metadata like the page title, CSS links, scripts, and SEO tags, while the
+            <span class="tag">&lt;body&gt;</span>
+            holds everything the user sees—text, images, buttons, forms, and links.
+          </p>
+          <h2 class="sub2">Basic HTML Skeleton :</h2>
+          <div class="code">
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">10. Purpose of &lt;head&gt; and &lt;body&gt;</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <span class="tag">&lt;head&gt;</span>
+            section contains information
+            <em>about the webpage</em>
+            but is not visible to the user. It includes metadata, page title, favicon, SEO keywords, external CSS/JS links, and character set definitions.
+          </p>
+          <p class="para">
+            The
+            <span class="tag">&lt;body&gt;</span>
+            section contains all visible content such as headings, paragraphs, images, buttons, forms, and any scripts that run on the page. Browsers read the
+            <span class="tag">&lt;head&gt;</span>
+            first to prepare the page and then display the
+            <span class="tag">&lt;body&gt;</span>
+            content.
+          </p>
+          <p class="para">Both sections are essential for organizing and loading a webpage correctly.</p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">11. Ordered vs Unordered Lists</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Below is a quick comparison between ordered lists and unordered lists.</p>
+          <div class="code">
+            <table style="width: 100%; border-collapse: collapse; font-size: 1rem">
+              <thead>
+                <tr>
+                  <th style="border-bottom: 2px solid black; text-align: left; padding: 0.5em">Feature</th>
+                  <th style="border-bottom: 2px solid black; text-align: left; padding: 0.5em">
+                    Ordered List (
+                    <span class="tag">&lt;ol&gt;</span>
+                    )
+                  </th>
+                  <th style="border-bottom: 2px solid black; text-align: left; padding: 0.5em">
+                    Unordered List (
+                    <span class="tag">&lt;ul&gt;</span>
+                    )
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.5em">Purpose</td>
+                  <td style="padding: 0.5em">Used when the order or sequence of items is important.</td>
+                  <td style="padding: 0.5em">
+                    Used when order does
+                    <em>not</em>
+                    matter.
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5em">Appearance</td>
+                  <td style="padding: 0.5em">Numbers (1, 2, 3...), letters (a, b), or roman numerals (i, ii).</td>
+                  <td style="padding: 0.5em">Bullets (●, ○, ■).</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5em">Syntax</td>
+                  <td style="padding: 0.5em"><span class="tag">&lt;ol&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ol&gt;</span></td>
+                  <td style="padding: 0.5em"><span class="tag">&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</span></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5em">Example Usage</td>
+                  <td style="padding: 0.5em">Steps, tutorials, processes, rankings.</td>
+                  <td style="padding: 0.5em">Features list, menu items, categories.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5em">Browser Default</td>
+                  <td style="padding: 0.5em">Numeric numbering.</td>
+                  <td style="padding: 0.5em">Solid bullet.</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.5em">Customization</td>
+                  <td style="padding: 0.5em">
+                    The
+                    <span class="tag">type</span>
+                    attribute can change number style.
+                  </td>
+                  <td style="padding: 0.5em">
+                    The
+                    <span class="tag">list-style</span>
+                    property can change bullet style.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">12. Nesting Elements</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Nesting means placing one HTML element inside another.</p>
+          <p class="para">Proper nesting ensures the browser renders the page correctly and avoids unexpected layout issues.</p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;div&gt;
+  &lt;p&gt;This is nested inside a div.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">13. Embedding Media (Video, Audio, Iframe)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h2 class="sub2">✔ Video</h2>
+          <div class="code">
+            <pre><code>&lt;video src="movie.mp4" controls width="400"&gt;&lt;/video&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">✔ Audio</h2>
+          <div class="code">
+            <pre><code>&lt;audio src="song.mp3" controls&gt;&lt;/audio&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">✔ Iframe – Embed YouTube / Maps</h2>
+          <div class="code">
+            <pre><code>&lt;iframe width="500" height="300" src="https://www.youtube.com/embed/xyz"&gt;&lt;/iframe&gt;</code></pre>
+          </div>
+
+          <p class="para">Use these tags to embed media content directly into your webpages without requiring downloads.</p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">14. Self-Closing Tags</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Self‑closing tags do not require a separate closing element. They represent elements that do not contain inner content.</p>
+          <p class="para">
+            Common examples include
+            <span class="tag">&lt;br&gt;</span>
+            for line breaks,
+            <span class="tag">&lt;hr&gt;</span>
+            for horizontal rules,
+            <span class="tag">&lt;img&gt;</span>
+            for images,
+            <span class="tag">&lt;input&gt;</span>
+            for form fields,
+            <span class="tag">&lt;meta&gt;</span>
+            for metadata, and
+            <span class="tag">&lt;link&gt;</span>
+            for connecting external CSS files.
+          </p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;img src="pic.jpg" alt="Photo"&gt;
+&lt;br&gt;</code></pre>
+          </div>
+          <p class="para">Self‑closing tags are short, clear, and important parts of HTML syntax and structure.</p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">15. Links (Hyperlinks)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Links connect webpages internally (within the same site) and externally (to other websites).</p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;a href="https://google.com" target="_blank" title="Open Google"&gt;Visit Google&lt;/a&gt;</code></pre>
+          </div>
+          <h2 class="sub2">Important Attributes :</h2>
+          <p class="para">
+            <span class="tag">href</span>
+            – the link address (URL)
+            <br />
+            <span class="tag">target="_blank"</span>
+            – opens the link in a new tab
+            <br />
+            <span class="tag">title</span>
+            – shows hover text / tooltip on the link
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">16. Images (With Attributes)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Images make webpages more engaging. The &lt;img&gt; tag is self‑closing and uses attributes to define the source, description, and size.</p>
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;img src="laptop.png" alt="Laptop Image" width="300"&gt;</code></pre>
+          </div>
+          <p class="para">
+            The
+            <span class="tag">alt</span>
+            text is important for:
+          </p>
+          <ul style="margin-left: 2.5em; font-size: 1.1em">
+            <li>Accessibility – screen readers can describe the image to visually impaired users.</li>
+            <li>SEO – search engines understand the image content.</li>
+            <li>Image loading failures – text is shown when the image cannot load.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">17. Semantic HTML</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Semantic HTML uses meaningful tags so that the structure of the page clearly describes the content.</p>
+
+          <h2 class="sub2">Common Semantic Tags :</h2>
+          <ul style="margin-left: 2.5em; font-size: 1.1em; list-style: disc">
+            <li>
+              <span class="tag">&lt;header&gt;</span>
+              – top section (logo, title, main navigation)
+            </li>
+            <li>
+              <span class="tag">&lt;nav&gt;</span>
+              – navigation menu with links
+            </li>
+            <li>
+              <span class="tag">&lt;section&gt;</span>
+              – groups related content
+            </li>
+            <li>
+              <span class="tag">&lt;article&gt;</span>
+              – independent content (blog post, news article)
+            </li>
+            <li>
+              <span class="tag">&lt;main&gt;</span>
+              – main content area of the page
+            </li>
+            <li>
+              <span class="tag">&lt;footer&gt;</span>
+              – bottom section (copyright, contact links)
+            </li>
+          </ul>
+
+          <h2 class="sub2">Page Structure (Diagram) :</h2>
+          <div class="code">
+            <pre><code>&lt;header&gt;
+&lt;nav&gt;
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;article&gt;
+    &lt;/article&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">Example :</h2>
+          <div class="code">
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;My Blog&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Blog Article&lt;/h2&gt;
+  &lt;/article&gt;
+&lt;/section&gt;
+
+&lt;footer&gt;&copy; 2024 My Website&lt;/footer&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">18. Forms &amp; Input Types</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            The
+            <span class="tag">&lt;form&gt;</span>
+            tag collects user input and sends it to a server or processes it using JavaScript. Forms can contain text fields, radio buttons, checkboxes, dropdowns, buttons, and password fields. Common
+            input types include
+            <span class="tag">text</span>
+            ,
+            <span class="tag">email</span>
+            ,
+            <span class="tag">password</span>
+            ,
+            <span class="tag">number</span>
+            , and
+            <span class="tag">submit</span>
+            . Forms are essential for login pages, registrations, surveys, search boxes, and payment forms.
+          </p>
+
+          <h2 class="sub2">✔ Example Form</h2>
+          <div class="code">
+            <pre><code>&lt;form&gt;
+  &lt;label&gt;Name:&lt;/label&gt;
+  &lt;input type="text"&gt;
+
+  &lt;label&gt;Email:&lt;/label&gt;
+  &lt;input type="email" required&gt;
+
+  &lt;button&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+
+          <h2 class="sub2">✔ Common Input Types</h2>
+          <p class="para">Some commonly used input types are:</p>
+          <ul style="margin-left: 2.5em; font-size: 1.1em">
+            <li>text</li>
+            <li>password</li>
+            <li>email</li>
+            <li>number</li>
+            <li>radio</li>
+            <li>checkbox</li>
+            <li>date</li>
+            <li>file</li>
+          </ul>
+
+          <h2 class="sub2">✔ Validation Attributes</h2>
+          <p class="para">Validation attributes help control and verify the data users enter before the form is submitted.</p>
+          <ul style="margin-left: 2.5em; font-size: 1.1em">
+            <li>
+              <span class="tag">required</span>
+              – makes the field mandatory
+            </li>
+            <li>
+              <span class="tag">min</span>
+              – sets the minimum numeric value
+            </li>
+            <li>
+              <span class="tag">max</span>
+              – sets the maximum numeric value
+            </li>
+            <li>
+              <span class="tag">pattern</span>
+              – defines a regular expression that the input must match (useful for custom formats)
+            </li>
+            <li>
+              <span class="tag">placeholder</span>
+              – shows hint text inside the field explaining what to enter
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">19. Tables (With Proper Structure)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">Tables are used to display structured, tabular data like products, prices, marks, or schedules.</p>
+          <h2 class="sub2">✔ Example :</h2>
+          <div class="code">
+            <pre><code>&lt;table border="1"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Product&lt;/th&gt;
+      &lt;th&gt;Price&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Keyboard&lt;/td&gt;
+      &lt;td&gt;₹800&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+          <p class="para">Tables should be used only for data, not for page layout. For layout, prefer CSS with flexbox or grid.</p>
+        </div>
+      </div>
+    </main>
+    <script>
+      document.querySelectorAll(".topic-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const topic = header.parentElement;
+          const isOpen = topic.classList.contains("open");
+
+          // close all topics
+          document.querySelectorAll(".topic").forEach((t) => {
+            t.classList.remove("open");
+            const toggle = t.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "+";
+          });
+
+          // open clicked one if it was closed
+          if (!isOpen) {
+            topic.classList.add("open");
+            const toggle = topic.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "−";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End_Sem - Unit 4 (Git &amp; Version Control)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+      }
+      .back-btn {
+        margin: 1em 0;
+        align-self: flex-start;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 0.4em 0.9em;
+        border-radius: 999px;
+        font-size: 0.95em;
+        font-weight: 600;
+      }
+      .back-btn:hover {
+        opacity: 0.8;
+      }
+      main {
+        display: flex;
+        padding: 2em 5em 2em 5em;
+        box-sizing: border-box;
+        justify-content: flex-start;
+        background-color: bisque;
+        border-radius: 2em;
+        width: 95vw;
+        flex-direction: column;
+      }
+      .main-title {
+        text-align: center;
+        margin: 2em 0em 2em 0em;
+      }
+      .para {
+        font-size: 1.1em;
+        margin: 0;
+      }
+      .subhead {
+        margin: 1em 0em 1em 0em;
+      }
+      .sub2 {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
+      .topic {
+        border-radius: 1em;
+        background: #fff7e6;
+        margin: 0.75em 0;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+      .topic-header {
+        padding: 0.8em 1.2em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .topic-header h2 {
+        margin: 0;
+      }
+      .topic-toggle {
+        font-size: 1.1em;
+        font-weight: 700;
+      }
+      .topic-body {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.6em;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+      }
+      .topic.open .topic-body {
+        max-height: none;
+        padding: 0 1.6em 1.4em 1.6em;
+      }
+      ul.para {
+        font-size: 1.02em;
+      }
+
+      .code {
+        margin: 1em 2em 0em 2em;
+        background-color: rgb(255, 240, 154);
+        padding: 1em;
+        border-radius: 1em;
+        border: 0.08em solid black;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <main>
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h1 class="main-title">Unit 4 &mdash; Git &amp; Version Control</h1>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">1. Introduction to Version Control (VCS)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para">
+            Version Control Systems (VCS) help developers manage changes made to code over time. They allow tracking of modifications, restoring previous versions, and collaborating with multiple
+            developers without overwriting each other&rsquo;s work. VCS also maintains a complete history of changes, making debugging and team coordination easier. Git is a distributed VCS, meaning
+            every user has a full copy of the project history, ensuring speed, reliability, and offline access.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Key Features</h3>
+          <ul class="para" style="margin-left: 2em; list-style: disc">
+            <li>Tracks every change</li>
+            <li>Provides backups</li>
+            <li>Allows collaboration</li>
+            <li>Helps revert mistakes</li>
+            <li>Maintains version history</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">2. What is Git?</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            Git is a
+            <strong>distributed version control system</strong>
+            used to track changes in source code. Each contributor has a full copy of the repository, including the complete history. Git is fast, efficient, and widely used in professional
+            development. It helps manage projects, work in teams, resolve conflicts, and maintain multiple versions of a project through branches.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">3. Git Installation &amp; Setup</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            Before using Git, you need to install it on your system and configure your identity (name and email). This information is stored with every commit you make.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Install Git</h3>
+          <p class="para" style="margin-top: 0.4em">
+            Download Git from the official website:
+            <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Set Username &amp; Email (important for commits)</h3>
+          <p class="para" style="margin-top: 0.4em">These details are used to identify the author of each commit.</p>
+          <div class="code">
+              <code>git config --global user.name "Your Name"</code> <br>
+
+              <code>git config --global user.email "your@email.com"</code>
+          </div>
+           
+
+          <h3 class="sub2" style="margin-top: 1em">Check Configuration</h3>
+          <p class="para" style="margin-top: 0.4em">To verify your Git configuration, run:</p>
+          <div class="code">
+              <code>git config --list</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">4. Repository Creation (Local Repo)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            A
+            <strong>Git repository</strong>
+            tracks changes in a project. You can turn any folder into a Git repository and start tracking all version history.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Creating a New Repository</h3>
+          <p class="para" style="margin-top: 0.4em">Inside your project folder, run:</p>
+          <div class="code">
+              <code>git init</code>
+          </div>
+          <p class="para" style="margin-top: 0.4em">
+            This creates a hidden
+            <code>.git</code>
+            folder which stores all version history (commits, branches, etc.).
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Clone an Existing Repository</h3>
+          <p class="para" style="margin-top: 0.4em">To copy an existing remote repository to your system, use:</p>
+          <p class="para" style="margin-top: 0.4em">
+            <div class="code">
+                <code>git clone &lt;repository-url&gt;</code>
+            </div>
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">6. Tracking Files in Git: Add → Commit → Push</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            When working with Git, you generally follow these basic steps to record and share your work:
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">1. Check Status</h3>
+          <div class="code">
+            <code>git status</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">2. Stage Files</h3>
+          <p class="para" style="margin-top: 0.4em">Stage individual files:</p>
+          <div class="code">
+            <code>git add file.html</code>
+          </div>
+          <p class="para" style="margin-top: 0.4em">Or stage everything in the current folder:</p>
+          <div class="code">
+            <code>git add .</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">3. Commit Changes</h3>
+          <div class="code">
+            <code>git commit -m "Meaningful message"</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">4. Push to GitHub</h3>
+          <div class="code">
+            <code>git push origin main</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">7. Understanding Staging &amp; Committing</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            <strong>Staging</strong> is the process of selecting which modified files should be included in the next commit. This allows developers to organize changes and commit them in meaningful
+            groups.
+          </p>
+          <p class="para" style="margin-top: 0.6em">
+            <strong>Committing</strong> stores the staged files into the repository with a message describing the change. Each commit becomes a snapshot of the project, which can be restored anytime.
+          </p>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">8. Using GitHub for Remote Collaboration</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            GitHub is a cloud platform for hosting Git repositories. It enables developers to collaborate, share code, review changes, and contribute to the same project from anywhere.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Key Features</h3>
+          <ul class="para" style="margin-left: 2em; list-style: disc; margin-top: 0.4em">
+            <li>Remote backups</li>
+            <li>Pull requests</li>
+            <li>Issues &amp; bug tracking</li>
+            <li>Code reviews</li>
+            <li>Team collaboration</li>
+          </ul>
+
+          <h3 class="sub2" style="margin-top: 1em">Connect Git with GitHub</h3>
+          <p class="para" style="margin-top: 0.4em">To link your local repository with a remote on GitHub, use:</p>
+          <div class="code">
+            <code>git remote add origin &lt;repo-url&gt;</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">9. Pushing &amp; Pulling Code (Remote Workflows)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h3 class="sub2" style="margin-top: 1em">Push Code to GitHub</h3>
+          <div class="code">
+            <code>git push origin main</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Pull Latest Changes from GitHub</h3>
+          <div class="code">
+            <code>git pull origin main</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1em">Fetch Only (without merging)</h3>
+          <div class="code">
+            <code>git fetch</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">10. Understanding Branches</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <p class="para" style="margin-top: 0.6em">
+            A <strong>branch</strong> is a separate version of your project where you can add features without affecting the main code. Branches help developers experiment safely.
+          </p>
+
+          <h3 class="sub2" style="margin-top: 1em">Common Commands (Intro Level)</h3>
+
+          <p class="para" style="margin-top: 0.6em">Create a new branch:</p>
+          <div class="code">
+            <code>git branch feature1</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.6em">Switch branch:</p>
+          <div class="code">
+            <code>git checkout feature1</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.6em">List all branches:</p>
+          <div class="code">
+            <code>git branch</code>
+          </div>
+
+          <p class="para" style="margin-top: 0.6em">Merge a branch into main:</p>
+          <div class="code">
+            <code>git merge feature1</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <h2 class="subhead">11. Important Git Commands (Theory + Examples)</h2>
+          <span class="topic-toggle">+</span>
+        </div>
+        <div class="topic-body">
+          <h3 class="sub2" style="margin-top: 1em">1. <code>git init</code> — Initialize a Repository</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git init</code>
+            is used to create a new Git repository inside a folder. It starts version control by generating a hidden
+            <code>.git</code>
+            folder that tracks file changes, commits, and branches.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git init</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">2. <code>git add</code> — Move Changes to Staging Area</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git add</code>
+            moves modified files from the working directory to the staging area. This step prepares changes for commit so Git only records what is staged, giving full control over versioning.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git add file.html</code>
+            <br />
+            <code>git add .</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">3. <code>git commit</code> — Save a Version Snapshot</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git commit</code>
+            permanently records the staged changes into the repository history. It creates a snapshot of your project at a specific point in time along with a meaningful commit message.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git commit -m "Added homepage UI"</code>
+          </div>
+ 
+          <h3 class="sub2" style="margin-top: 1.4em">4. <code>git status</code> — Check Current Repo State</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git status</code>
+            shows which files are modified, staged, or untracked. It helps developers monitor what has changed and decide what needs to be added or committed.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git status</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">5. <code>git branch</code> — Manage Branches</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git branch</code>
+            is used to create, list, or delete branches. It lets developers work on new features without changing the main project, making collaboration safer and easier.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git branch</code>
+            <br />
+            <code>git branch new-feature</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">6. <code>git checkout</code> — Switch Branches</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git checkout</code>
+            is used to move between branches or restore files. It allows developers to switch contexts instantly and work on different versions of the project.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git checkout new-feature</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">7. <code>git merge</code> — Combine Branches</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git merge</code>
+            combines changes from one branch into another. It integrates work done by different developers, and if the same file was edited differently, merge conflicts may occur.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git merge new-feature</code>
+          </div>
+ 
+          <h3 class="sub2" style="margin-top: 1.4em">8. <code>git clone</code> — Copy Remote Repository</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git clone</code>
+            creates a full copy of a remote GitHub repository on your local machine. It downloads all files, history, branches, and automatically connects to the remote origin.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git clone https://github.com/user/project.git</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">9. <code>git remote add origin</code> — Connect Local Repo to GitHub</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git remote add origin</code>
+            links your local project to a remote GitHub repository so you can push and pull code between them.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git remote add origin https://github.com/user/repo.git</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">10. <code>git push</code> — Upload Code to GitHub</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git push</code>
+            sends your local commits to the remote repository (GitHub). This is how developers share their code and collaborate with team members working on the same project.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git push -u origin main</code>
+          </div>
+ 
+          <h3 class="sub2" style="margin-top: 1.4em">11. <code>git pull</code> — Download Updates from GitHub</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git pull</code>
+            fetches the latest changes from the remote repository and automatically merges them into your local code. It keeps your project synchronized with teammates’ updates.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git pull origin main</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">12. <code>git fetch</code> — Download Without Merging</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git fetch</code>
+            downloads new commits from the remote but does not merge them automatically. It is safe for reviewing updates before changing your local branches.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git fetch origin</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">13. <code>git log</code> — View Commit History</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git log</code>
+            shows a list of all commits along with author name, date, commit message, and hash. It is useful for tracking changes and understanding the project’s history.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git log</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">14. <code>git diff</code> — See the Difference Between Versions</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git diff</code>
+            displays line-by-line changes between files or commits. It is used to review modifications before committing or to understand what changed between versions.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git diff</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">15. <code>git reset</code> — Unstage or Undo Commits</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git reset</code>
+            is used to undo commits or move files out of the staging area. It is helpful for correcting mistakes before sharing changes with others.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git reset file.txt</code>
+          </div>
+
+          <h3 class="sub2" style="margin-top: 1.4em">16. <code>git rm</code> — Remove Files from Repo</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git rm</code>
+            deletes files from the working directory and staging area. It is commonly used when cleaning up projects or removing obsolete files from version control.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git rm oldfile.js</code>
+          </div>
+ 
+          <h3 class="sub2" style="margin-top: 1.4em">18. <code>git config</code> — Set Username &amp; Email</h3>
+          <p class="para" style="margin-top: 0.6em">
+            <code>git config</code>
+            stores your Git identity so commits show the correct author details in the history. Usually set once per machine using the <code>--global</code> option.
+          </p>
+          <p class="para" style="margin-top: 0.4em"><strong>Example</strong></p>
+          <div class="code">
+            <code>git config --global user.name "Mitali"</code>
+            <br />
+            <code>git config --global user.email "mitali@gmail.com"</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- More topics for Unit 4 can be added below -->
+    </main>
+
+    <script>
+      document.querySelectorAll(".topic-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const topic = header.parentElement;
+          const isOpen = topic.classList.contains("open");
+
+          document.querySelectorAll(".topic").forEach((t) => {
+            t.classList.remove("open");
+            const toggle = t.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "+";
+          });
+
+          if (!isOpen) {
+            topic.classList.add("open");
+            const toggle = topic.querySelector(".topic-toggle");
+            if (toggle) toggle.textContent = "-";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

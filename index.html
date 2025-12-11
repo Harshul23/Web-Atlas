@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-Dev Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boldonse&family=Fuzzy+Bubbles:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Shantell Sans;
+        background-color: rgb(255, 253, 241);
+      }
+      nav {
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5vh;
+        width: 95vw;
+        border-radius: 1em;
+        margin-top: 1em;
+        background-color: black;
+      }
+      .logo {
+        height: 2em;
+        width: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: white;
+        color: black;
+        font-weight: 900;
+      }
+      .navlinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8em;
+        color: white;
+        list-style: none;
+      }
+      .navbtn {
+        border: none;
+        border-radius: 2em;
+        background-color: rgb(255, 102, 0);
+        padding: 1em;
+        color: white;
+        font-weight: 700;
+      }
+      .units {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        width: 90vw;
+        padding: 1em;
+        gap: 2em;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+      }
+      .card {
+        height: 100%;
+        width: 100%;
+        border-radius: 1em;
+        background-color: rgb(199, 255, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 0.08em solid black;
+        padding: 1em;
+        box-sizing: border-box;
+      }
+      .unihead {
+        font-size: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">L</div>
+      <ul class="navlinks">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 1em">
+        <button class="navbtn" style="background-color: white; color: black">Login</button>
+        <button class="navbtn">Sign in</button>
+      </div>
+    </nav>
+
+    <h1 style="margin-top: 2em">Every Notes you want</h1>
+    <div class="units">
+      <a href="unit_1.html">
+        <div class="card">
+          <h1 class="unihead">UNIT – 1: HTML BASICS & STRUCTURE</h1>
+        </div>
+      </a>
+
+      <a href="unit_2.html">
+        <div class="card">
+          <h1 class="unihead">UNIT – 2: Styling with CSS and Layout</h1>
+        </div>
+      </a>
+
+      <a href="unit_3.html">
+        <div class="card">
+          <h1 class="unihead">UNIT – 3: Java Script (Functionality)</h1>
+        </div>
+      </a>
+
+       <a href="unit_4.html">
+        <div class="card">
+          <h1 class="unihead">UNIT – 4: Version Control System</h1>
+        </div>
+      </a>
+
+       <a href="unit_5.html">
+        <div class="card">
+          <h1 class="unihead">UNIT – 5: DOM, Events and user interaction</h1>
+        </div>
+      </a>
+
+    </div>
+  </body>
+</html>
