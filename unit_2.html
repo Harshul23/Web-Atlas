@@ -38,13 +38,15 @@
       }
       main {
         display: flex;
-        padding: 2em 5em 2em 5em;
+        padding: 2em;
         box-sizing: border-box;
         justify-content: flex-start;
         background-color: bisque;
         border-radius: 2em;
         width: 95vw;
+        max-width: 100%;
         flex-direction: column;
+        overflow-x: hidden;
       }
       main h1 {
         text-align: center;
@@ -61,11 +63,19 @@
         font-size: 1.2em;
       }
       .code {
-        margin: 1em 2em 0em 2em;
+        margin: 1em 0 0 0;
         background-color: rgb(255, 244, 183);
         padding: 1em;
         border-radius: 1em;
         border: 0.08em solid black;
+        overflow-x: auto;
+        max-width: 100%;
+      }
+      
+      .code pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
       }
       .para {
         margin: 0;
@@ -114,33 +124,35 @@
       }
 
       .box-model-diagram {
-        margin: 1.5em 2em 0 2em;
+        margin: 1.5em 0 0 0;
         display: inline-block;
         background-color: #fff4bf;
-        padding: 1em 2em 2em 2em;
+        padding: 1em;
         border: 1px dashed #b38f00;
         border-radius: 0.5em;
         font-size: 0.9em;
         cursor: default;
         transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        max-width: 100%;
+        box-sizing: border-box;
       }
       .box-model-margin {
         background: #ffe6e6;
-        padding: 1em 2em 2em 2em;
+        padding: 1em;
         border: 1px dashed #b38f00;
         border-radius: 0.5em;
         transition: box-shadow 0.2s ease, background-color 0.2s ease;
       }
       .box-model-border {
         background: #e6f0ff;
-        padding: 1em 2em 2em 2em;
+        padding: 1em;
         border: 1px dashed #b38f00;
         border-radius: 0.5em;
         transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
       }
       .box-model-padding {
         background: #e6ffe6;
-        padding: 1em 2em 2em 2em;
+        padding: 1em;
         border: 1px dashed #b38f00;
         border-radius: 0.5em;
         transition: box-shadow 0.2s ease, background-color 0.2s ease;
@@ -155,6 +167,7 @@
         border: 1px dashed #b38f00;
         border-radius: 0.5em;
         transition: box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        word-wrap: break-word;
       }
       .box-model-label {
         font-size: 0.85em;
@@ -187,11 +200,13 @@
         box-shadow: 0 0 0 3px rgba(224, 168, 0, 0.25);
       }
       .flex-playground {
-        margin: 1.5em 2em;
+        margin: 1.5em 0;
         padding: 1em;
         border-radius: 1em;
         background: #fffaf0;
         border: 1px solid #e0c48a;
+        max-width: 100%;
+        box-sizing: border-box;
       }
       .flex-playground-controls {
         display: flex;
@@ -218,6 +233,7 @@
         color: #fff;
         font-size: 0.9em;
         cursor: pointer;
+        white-space: nowrap;
       }
       .flex-btn.active {
         background: #ff6600;
@@ -228,9 +244,10 @@
         padding: 0.75em;
         display: flex;
         gap: 0.5em;
-        min-height: 50vh;
+        min-height: 30vh;
         background: #fff;
         transition: all 0.25s ease;
+        overflow: auto;
       }
       .flex-item {
         flex: 0 0 auto;
@@ -255,11 +272,13 @@
       }
 
       .grid-playground {
-        margin: 1.5em 2em;
+        margin: 1.5em 0;
         padding: 1em;
         border-radius: 1em;
         background: #f5f8ff;
         border: 1px solid #b8c9ff;
+        max-width: 100%;
+        box-sizing: border-box;
       }
       .grid-playground-controls {
         display: flex;
@@ -273,6 +292,7 @@
         gap: 0.75em;
         margin: 0.25em 0 1em 0;
         font-size: 0.9em;
+        flex-wrap: wrap;
       }
       .grid-gap-slider-row label {
         font-weight: 600;
@@ -287,6 +307,7 @@
       }
       .grid-gap-slider {
         flex: 1;
+        min-width: 120px;
         -webkit-appearance: none;
         appearance: none;
         height: 6px;
@@ -391,13 +412,15 @@
         border-radius: 0.75em;
         border: 2px dashed #0066ff;
         padding: 0.75em;
-        height: 50vh;
+        min-height: 30vh;
         background: #fff;
         transition: all 0.25s ease;
+        overflow: auto;
       }
       .grid-item {
         height: 80px;
         width: 80px;
+        max-width: 100%;
         border-radius: 0.5em;
         display: flex;
         align-items: center;
@@ -414,6 +437,156 @@
       }
       .grid-item:nth-child(3n + 3) {
         background: #ffa94d;
+      }
+      
+      /* Responsive Media Queries */
+      @media screen and (max-width: 768px) {
+        main {
+          padding: 1.5em;
+          width: 98vw;
+        }
+        
+        main h1 {
+          font-size: 1.5em;
+          margin: 1em 0;
+        }
+        
+        main p {
+          font-size: 1.05em;
+        }
+        
+        .subhead {
+          font-size: 1.1em;
+        }
+        
+        .code {
+          margin: 0.5em 0;
+          padding: 0.8em;
+          font-size: 0.85em;
+        }
+        
+        .topic-body {
+          padding: 0 1em;
+        }
+        
+        .topic.open .topic-body {
+          padding: 0 1em 1em 1em;
+        }
+        
+        .flex-btn, .grid-btn {
+          font-size: 0.8em;
+          padding: 0.35em 0.7em;
+        }
+        
+        .flex-sample-container,
+        .grid-sample-container {
+          min-height: 25vh;
+        }
+        
+        .grid-item {
+          height: 60px;
+          width: 60px;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        body {
+          width: 100vw;
+          overflow-x: hidden;
+        }
+        
+        main {
+          padding: 1em;
+          width: 100%;
+          border-radius: 1em;
+        }
+        
+        main h1 {
+          font-size: 1.3em;
+        }
+        
+        main p {
+          font-size: 1em;
+        }
+        
+        .back-btn {
+          font-size: 0.85em;
+          padding: 0.3em 0.7em;
+        }
+        
+        .subhead {
+          font-size: 1em;
+        }
+        
+        .sub2 {
+          font-size: 1.1em;
+        }
+        
+        .code {
+          font-size: 0.75em;
+          padding: 0.6em;
+        }
+        
+        .topic-header {
+          padding: 0.6em 1em;
+        }
+        
+        .topic-body {
+          padding: 0 0.8em;
+        }
+        
+        .topic.open .topic-body {
+          padding: 0 0.8em 1em 0.8em;
+        }
+        
+        .flex-btn, .grid-btn {
+          font-size: 0.75em;
+          padding: 0.3em 0.6em;
+        }
+        
+        .flex-sample-container,
+        .grid-sample-container {
+          min-height: 20vh;
+          padding: 0.5em;
+        }
+        
+        .flex-item {
+          width: 50px;
+          height: 50px;
+          font-size: 0.75em;
+        }
+        
+        .grid-item {
+          height: 50px;
+          width: 50px;
+          font-size: 0.75em;
+        }
+        
+        .grid-size-sliders {
+          flex-direction: column;
+        }
+        
+        .grid-size-control {
+          width: 100%;
+        }
+        
+        .box-model-diagram {
+          font-size: 0.75em;
+          padding: 0.5em;
+        }
+        
+        .box-model-margin,
+        .box-model-border,
+        .box-model-padding {
+          padding: 0.5em;
+        }
+        
+        table {
+          font-size: 0.75em;
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
       }
     </style>
   </head>
