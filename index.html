@@ -28,11 +28,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 5vh;
+        min-height: 5vh;
         width: 95vw;
+        max-width: 100%;
         border-radius: 1em;
         margin-top: 1em;
         background-color: black;
+        flex-wrap: wrap;
+        gap: 1em;
       }
       .logo {
         height: 2em;
@@ -44,28 +47,35 @@
         background-color: white;
         color: black;
         font-weight: 900;
+        flex-shrink: 0;
       }
       .navlinks {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8em;
+        gap: 2em;
         color: white;
         list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
       }
       .navbtn {
         border: none;
         border-radius: 2em;
         background-color: rgb(255, 102, 0);
-        padding: 1em;
+        padding: 0.8em 1.2em;
         color: white;
         font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
       }
       .units {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         width: 90vw;
+        max-width: 100%;
         padding: 1em;
         gap: 2em;
         a {
@@ -85,9 +95,76 @@
         border: 0.08em solid black;
         padding: 1em;
         box-sizing: border-box;
+        min-height: 150px;
       }
       .unihead {
         font-size: 1em;
+        text-align: center;
+      }
+      
+      /* Responsive Media Queries */
+      @media screen and (max-width: 768px) {
+        nav {
+          padding: 0.8em;
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        .navlinks {
+          gap: 1em;
+          font-size: 0.9em;
+        }
+        
+        .navbtn {
+          padding: 0.6em 1em;
+          font-size: 0.9em;
+        }
+        
+        .units {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5em;
+          width: 95vw;
+          padding: 0.5em;
+        }
+        
+        h1 {
+          font-size: 1.5em;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        nav {
+          padding: 0.5em;
+        }
+        
+        .navlinks {
+          flex-direction: column;
+          gap: 0.5em;
+          width: 100%;
+        }
+        
+        .navlinks li {
+          width: 100%;
+          text-align: center;
+        }
+        
+        .units {
+          grid-template-columns: 1fr;
+          gap: 1em;
+        }
+        
+        .card {
+          min-height: 120px;
+        }
+        
+        .unihead {
+          font-size: 0.95em;
+        }
+        
+        h1 {
+          font-size: 1.3em;
+          margin-top: 1em;
+        }
       }
     </style>
   </head>
